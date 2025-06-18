@@ -1,16 +1,66 @@
-# maps_fahu
+Aquí tienes un archivo `README.md` básico para tu proyecto Flutter de mapas. Puedes personalizarlo según las características específicas de tu aplicación:
 
-A new Flutter project.
+```markdown
+# Mapa FAHU - Flutter
 
-## Getting Started
+Aplicación de mapas desarrollada en Flutter para [explica brevemente el propósito de la app].
 
-This project is a starting point for a Flutter application.
+## Características principales
+- Visualización de mapas interactivos
+- [Añade otras funcionalidades relevantes]
+- [Ejemplo: Búsqueda de ubicaciones, marcadores personalizados, etc.]
 
-A few resources to get you started if this is your first Flutter project:
+## Capturas de pantalla
+[Si tienes imágenes, puedes añadirlas aquí]
+![Ejemplo screenshot](screenshots/screenshot1.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Requisitos
+- Flutter SDK 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Instalación
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/cromx123/mapa_fahu.git
+   ```
+2. Navega al directorio del proyecto:
+   ```bash
+   cd mapa_fahu
+   ```
+3. Instala las dependencias:
+   ```bash
+   flutter pub get
+   ```
+4. Ejecuta la aplicación:
+   ```bash
+   flutter run
+   ```
+
+## Configuración
+[Explica si hay algún archivo de configuración necesario o variables de entorno]
+
+## Dependencias principales
+- [Lista los paquetes importantes, por ejemplo:]
+- google_maps_flutter: ^X.X.X
+- geolocator: ^X.X.X
+
+## Licencia
+[Especifica la licencia si aplica, ejemplo:]
+Este proyecto está bajo la licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+```
+
+Para crear este archivo:
+
+1. Abre un editor de texto en tu proyecto:
+   ```bash
+   nano README.md
+   ```
+2. Copia y pega el contenido anterior
+3. Personaliza la información entre corchetes según tu proyecto
+4. Guarda el archivo (Ctrl+O, Enter, Ctrl+X en nano)
+
+Luego puedes añadirlo a tu repositorio:
+```bash
+git add README.md
+git commit -m "Añade README.md inicial"
+git push origin main
+```
