@@ -1,6 +1,9 @@
 // main.dart
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
+import 'package:geolocator/geolocator.dart';
 
 void main() => runApp(const CampusMapApp());
 
@@ -17,20 +20,88 @@ class CampusMapApp extends StatelessWidget {
   }
 }
 
-class CampusMapScreen extends StatelessWidget {
+class CampusMapScreen extends StatefulWidget {
   const CampusMapScreen({super.key});
+
+  @override
+  State<CampusMapScreen> createState() => _CampusMapScreenState();
+}
+
+class _CampusMapScreenState extends State<CampusMapScreen> {
+  final TextEditingController _searchController = TextEditingController();
+  final MapController _mapController = MapController();
+  List<Marker> _markers = [];
+  LatLng _center = LatLng(-33.4467, -70.6821); // Default to USACH
+  Marker? _userLocationMarker;
+
+  final Map<String, LatLng> lugares = {
+    'Facultad de Humanidades': LatLng(-33.4467, -70.6821),
+    'Biblioteca Central': LatLng(-33.4462, -70.6810),
+  };
+
+  @override
+  void initState() {
+    super.initState();
+    _getUserLocation();
+  }
+
+  Future<void> _getUserLocation({bool moveToLocation = false}) async {
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) return;
+
+    LocationPermission permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) return;
+    }
+
+    if (permission == LocationPermission.deniedForever) return;
+
+    final position = await Geolocator.getCurrentPosition();
+    final userLatLng = LatLng(position.latitude, position.longitude);
+
+    setState(() {
+      _center = userLatLng;
+      _userLocationMarker = Marker(
+        point: userLatLng,
+        width: 40,
+        height: 40,
+        child: const Icon(Icons.person_pin_circle, size: 40, color: Colors.blue),
+      );
+    });
+
+    if (moveToLocation) {
+      _mapController.move(userLatLng, 17);
+    }
+  }
+
+  void _buscarLugar(String texto) {
+    final lugar = lugares.entries
+        .firstWhere((e) => e.key.toLowerCase().contains(texto.toLowerCase()), orElse: () => const MapEntry('', LatLng(0, 0)));
+
+    if (lugar.key != '') {
+      setState(() {
+        _markers = [
+          Marker(
+            point: lugar.value,
+            width: 40,
+            height: 40,
+            child: const Icon(Icons.location_pin, size: 40, color: Colors.red),
+          )
+        ];
+        _center = lugar.value;
+      });
+      _mapController.move(lugar.value, 17);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mapa del Campus'),
-        backgroundColor: Colors.redAccent,
+        backgroundColor: const Color.fromARGB(255, 0, 163, 152),
         actions: [
-          const Icon(Icons.search),
-          const SizedBox(width: 10),
-          const Icon(Icons.mic),
-          const SizedBox(width: 10),
           IconButton(
             icon: const Icon(Icons.menu),
             onPressed: () {
@@ -40,68 +111,52 @@ class CampusMapScreen extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(width: 10),
         ],
       ),
-      body: Column(
+      body: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: 'Busca aquí',
-                prefixIcon: const Icon(Icons.location_pin),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextField(
+                  controller: _searchController,
+                  onSubmitted: _buscarLugar,
+                  decoration: InputDecoration(
+                    hintText: 'Buscar lugar...',
+                    prefixIcon: const Icon(Icons.search),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+                  ),
                 ),
               ),
-            ),
+              Expanded(
+                child: FlutterMap(
+                  mapController: _mapController,
+                  options: MapOptions(
+                    initialCenter: _center,
+                    initialZoom: 17,
+                  ),
+                  children: [
+                    TileLayer(
+                      urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                      userAgentPackageName: 'com.example.campusmap',
+                    ),
+                    MarkerLayer(markers: [
+                      if (_userLocationMarker != null) _userLocationMarker!,
+                      ..._markers,
+                    ]),
+                  ],
+                ),
+              ),
+            ],
           ),
-          Expanded(
-            child: Stack(
-              children: [
-                Center(
-                  child: InteractiveViewer(
-                    child: Image.asset('assets/images/mapa_screen.png'), // Usa tu imagen aquí
-                  ),
-                ),
-                const Positioned(
-                  left: 130,
-                  top: 200,
-                  child: Column(
-                    children: [
-                      Icon(Icons.location_pin, color: Colors.red, size: 30),
-                      Text('Facultad de Humanidades'),
-                    ],
-                  ),
-                ),
-                const Positioned(
-                  left: 20,
-                  bottom: 0,
-                  right: 20,
-                  child: Card(
-                    color: Colors.white,
-                    elevation: 4,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(12.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Información de la búsqueda', style: TextStyle(fontWeight: FontWeight.bold)),
-                          SizedBox(height: 5),
-                          Text('Nombre:'),
-                          Text('Piso:'),
-                          Text('Sala:'),
-                          Text('Sector:'),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+          Positioned(
+            bottom: 20,
+            right: 20,
+            child: FloatingActionButton(
+              backgroundColor: Colors.teal,
+              onPressed: () => _getUserLocation(moveToLocation: true),
+              child: const Icon(Icons.my_location),
             ),
           ),
         ],
@@ -109,6 +164,7 @@ class CampusMapScreen extends StatelessWidget {
     );
   }
 }
+
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});

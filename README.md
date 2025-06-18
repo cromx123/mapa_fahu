@@ -1,14 +1,15 @@
-# Mapa FAHU - Flutter
+# Mapa FAHU - Fluttera
 
-Aplicación de mapas desarrollada en Flutter para [explica brevemente el propósito de la app].
+Aplicación de mapas desarrollada en Flutter para facilitar la orientación y navegación dentro del campus de la Universidad de Santiago de Chile (USACH), proporcionando un mapa interactivo accesos directos a portales institucionales y servicios clave para estudiantes, docentes y visitantes.
 
 ## Características principales
-- Visualización de mapas interactivos
-- [Añade otras funcionalidades relevantes]
-- [Ejemplo: Búsqueda de ubicaciones, marcadores personalizados, etc.]
+- Visualización de mapas interactivos del campus USACH
+- Ayuda a estudiantes nuevos a encontrar salas, edificios, bibliotecas, casinos, etc.
+- Ofrece enlaces rápidos a portales como el portal la biblioteca, Usach Atiende, etc.
+- Guia a visitantes que no conocen el campus.
+- Interfaz adaptativa a multiples plataformas.
 
 ## Capturas de pantalla
-[Si tienes imágenes, puedes añadirlas aquí]
 ![Ejemplo screenshot](screenshots/screenshot1.png)
 
 ## Requisitos
@@ -33,30 +34,12 @@ Aplicación de mapas desarrollada en Flutter para [explica brevemente el propós
    ```
 
 ## Configuración
-[Explica si hay algún archivo de configuración necesario o variables de entorno]
 
 ## Dependencias principales
-- [Lista los paquetes importantes, por ejemplo:]
-- google_maps_flutter: ^X.X.X
-- geolocator: ^X.X.X
+- cupertino_icons: ^1.0.8
+- flutter_vector_icons: ^2.0.0
+- google_maps_flutter: ^2.2.3
+- url_launcher: ^6.3.1
 
 ## Licencia
-[Especifica la licencia si aplica, ejemplo:]
 Este proyecto está bajo la licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
-
-Para crear este archivo:
-
-1. Abre un editor de texto en tu proyecto:
-   ```bash
-   nano README.md
-   ```
-2. Copia y pega el contenido anterior
-3. Personaliza la información entre corchetes según tu proyecto
-4. Guarda el archivo (Ctrl+O, Enter, Ctrl+X en nano)
-
-Luego puedes añadirlo a tu repositorio:
-```bash
-git add README.md
-git commit -m "Añade README.md inicial"
-git push origin main
-```
