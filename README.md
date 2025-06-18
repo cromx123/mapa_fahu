@@ -1,6 +1,3 @@
-Aquí tienes un archivo `README.md` básico para tu proyecto Flutter de mapas. Puedes personalizarlo según las características específicas de tu aplicación:
-
-```markdown
 # Mapa FAHU - Flutter
 
 Aplicación de mapas desarrollada en Flutter para [explica brevemente el propósito de la app].
@@ -46,7 +43,6 @@ Aplicación de mapas desarrollada en Flutter para [explica brevemente el propós
 ## Licencia
 [Especifica la licencia si aplica, ejemplo:]
 Este proyecto está bajo la licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
-```
 
 Para crear este archivo:
 
