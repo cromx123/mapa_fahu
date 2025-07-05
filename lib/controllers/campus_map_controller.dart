@@ -5,6 +5,9 @@ import 'package:geolocator/geolocator.dart';
 import 'package:flutter_map/flutter_map.dart';
 import '../utils/path_finder.dart';
 import '../models/campus_node.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart' show rootBundle;
+
 
 class CampusMapController extends ChangeNotifier {
   final MapController mapController = MapController();
@@ -17,9 +20,15 @@ class CampusMapController extends ChangeNotifier {
   List<LatLng> routePoints = [];
 
   CampusMapController() {
+    loadNodes();
     _getUserLocation();
   }
-
+  Future<void> loadNodes() async {
+    final String jsonString = await rootBundle.loadString('assets/data/nodes.json');
+    final List<dynamic> jsonData = json.decode(jsonString);
+    campusNodes = jsonData.map((item) => CampusNode.fromJson(item)).toList();
+    notifyListeners();
+  }
   Future<void> _getUserLocation({bool moveToLocation = false}) async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) return;

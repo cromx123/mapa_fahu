@@ -1,0 +1,38 @@
+[
+  {
+    "id": "n1",
+    "tipo": "entrada",
+    "nombre": "Entrada Principal",
+    "sector": 0,
+    "nivel": 1,
+    "coord": { "lat": -33.4460, "lng": -70.6820 },
+    "vecinos": ["n2", "n3"]
+  },
+  {
+    "id": "n2",
+    "tipo": "edificio",
+    "nombre": "Biblioteca",
+    "sector": 1,
+    "nivel": 1,
+    "coord": { "lat": -33.4462, "lng": -70.6810 },
+    "vecinos": ["n1", "n4"]
+  },
+  {
+    "id": "n3",
+    "tipo": "edificio",
+    "nombre": "Facultad de Humanidades",
+    "sector": 2,
+    "nivel": 1,
+    "coord": { "lat": -33.448183, "lng": -70.682983 },
+    "vecinos": ["n1", "n4"]
+  },
+  {
+    "id": "n4",
+    "tipo": "camino",
+    "nombre": "Patio Central",
+    "sector": 1,
+    "nivel": 1,
+    "coord": { "lat": -33.4465, "lng": -70.6815 },
+    "vecinos": ["n2", "n3"]
+  }
+]
