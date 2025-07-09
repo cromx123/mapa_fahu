@@ -13,7 +13,18 @@ class MenuScreen extends StatelessWidget {
       backgroundColor: Colors.transparent, // fondo transparente
       body: Row(
         children: [
-          // Menú que ocupa 4/5
+          // Parte que ocupa 4/5, al tocarla se cierra
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                color: Colors.black.withOpacity(0.3), // semi-transparente
+              ),
+            ),
+          ),
+          // Menú que ocupa 1/5
           Container(
             width: screenWidth * 0.8, // 4/5
             color: Colors.white,
@@ -30,7 +41,6 @@ class MenuScreen extends StatelessWidget {
                         bottomRight: Radius.circular(40),
                       ),
                     ),
-                    padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 16),
                     child: const Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -86,16 +96,7 @@ class MenuScreen extends StatelessWidget {
             ),
           ),
           // Parte que ocupa 1/5, al tocarla se cierra
-          Expanded(
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Container(
-                color: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.3), // semi-transparente
-              ),
-            ),
-          ),
+          
         ],
       ),
     );

@@ -19,6 +19,10 @@ class CampusMapController extends ChangeNotifier {
 
   List<LatLng> routePoints = [];
   double distancia = 0.0;
+  String selectedPlaceName = '';
+  String selectedPlaceFloor = '';
+  String selectedPlaceSector = '';
+  String selectedPlaceType = '';
 
   CampusMapController() {
     loadNodes();
@@ -65,6 +69,11 @@ class CampusMapController extends ChangeNotifier {
       orElse: () => CampusNode(
           id: '', tipo: '', nombre: '', sector: 0, nivel: 1, coord: LatLng(0,0), vecinos: []),
     );
+    
+    selectedPlaceName = lugar.nombre;
+    selectedPlaceFloor = lugar.nivel.toString();
+    selectedPlaceSector = lugar.sector.toString();
+    selectedPlaceType = lugar.tipo;
 
     if (lugar.id.isNotEmpty && userLocationMarker != null) {
       // Encontrar el nodo más cercano a mi ubicación
