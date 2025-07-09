@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'controllers/campus_map_controller.dart';
+import 'controllers/mic_controller.dart';
 import 'views/campus_map_screen.dart';
 import 'views/menu_screen.dart';
 import 'views/config_screen.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => CampusMapController(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CampusMapController()),
+        ChangeNotifierProxyProvider<CampusMapController, MicController>(
+          create: (context) => MicController(context.read<CampusMapController>()),
+          update: (context, campusMapController, previousMicController) =>
+              previousMicController!..updateController(campusMapController),
+        ),
+      ],
       child: const CampusMapApp(),
     ),
   );

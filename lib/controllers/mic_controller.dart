@@ -4,7 +4,7 @@ import 'package:speech_to_text/speech_to_text.dart';
 import 'package:maps_fahu/controllers/campus_map_controller.dart';
 
 class MicController extends ChangeNotifier {
-  final CampusMapController controller;
+  CampusMapController controller;
 
   final TextEditingController searchController = TextEditingController();
   final SpeechToText speechToText = SpeechToText();
@@ -13,6 +13,10 @@ class MicController extends ChangeNotifier {
 
   MicController(this.controller);
 
+  void updateController(CampusMapController newController) {
+    controller = newController;
+    notifyListeners();
+  }
   Future<void> startListening() async {
     bool available = await speechToText.initialize(
       onStatus: (status) {
