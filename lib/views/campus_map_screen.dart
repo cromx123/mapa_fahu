@@ -90,7 +90,6 @@ class CampusMapScreen extends StatelessWidget {
                               icon: Icon(micController.isListening ? Icons.mic : Icons.mic_none, color: Colors.teal),
                               tooltip: 'Buscar por voz',
                             ),
-
                             IconButton(
                               onPressed: () {
                                 Navigator.of(context).push(
@@ -131,6 +130,7 @@ class CampusMapScreen extends StatelessWidget {
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50),
+                          
                         ),
                       ),
                       const SizedBox(width: 8),
@@ -197,17 +197,28 @@ class CampusMapScreen extends StatelessWidget {
               ],
             ),
           ),
-          Positioned(
-            bottom: 20,
-            right: 20,
-            child: FloatingActionButton(
-              backgroundColor: const Color.fromRGBO(255, 252, 234, 1),
-              onPressed: controller.moveToUserLocation,
-              child: const Icon(Icons.my_location),
-            ),
-          ),
-          if (controller.routePoints.isNotEmpty)
+          
+          if (controller.routePoints.isNotEmpty) ...[
             const PlaceInfoCard(),
+            Positioned(
+              bottom: 130,
+              right: 20,
+              child: FloatingActionButton(
+                backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                onPressed: controller.moveToUserLocation,
+                child: const Icon(Icons.my_location),
+              ),
+            ),
+          ] else
+            Positioned(
+              bottom: 20,
+              right: 20,
+              child: FloatingActionButton(
+                backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                onPressed: controller.moveToUserLocation,
+                child: const Icon(Icons.my_location),
+              ),
+            ),
         ],
       ),
     );

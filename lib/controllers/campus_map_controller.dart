@@ -19,6 +19,8 @@ class CampusMapController extends ChangeNotifier {
 
   List<LatLng> routePoints = [];
   double distancia = 0.0;
+  double tiempo = 0.0;
+  final double velocidadPromedio = 5.0; // Velocidad promedio en k/h
   String selectedPlaceName = '';
   String selectedPlaceFloor = '';
   String selectedPlaceSector = '';
@@ -86,7 +88,8 @@ class CampusMapController extends ChangeNotifier {
       final resutlt = dijkstra(campusNodes, startNode.id, lugar.id);
       routePoints = resutlt.path.map((n) => n.coord).toList();
       distancia = resutlt.distance;
-      
+      tiempo = distancia / velocidadPromedio;
+
       // Si userLocationMarker existe, añade primero tu ubicación real
       if (userLocationMarker != null) {
         routePoints.insert(0, userLocationMarker!.point);
@@ -101,6 +104,52 @@ class CampusMapController extends ChangeNotifier {
         )
       ];
 
+      final labelPoint = LatLng(lugar.coord.latitude + 0.0002, lugar.coord.longitude + 0.0006);
+
+      markers.add(
+        Marker(
+          point: labelPoint,
+          width: 80, 
+          height: 40,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(1),
+              borderRadius: BorderRadius.only( bottomLeft: Radius.circular(0), bottomRight: Radius.circular(12), topLeft: Radius.circular(12), topRight: Radius.circular(12)),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3),
+                  blurRadius: 4,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min, 
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.directions_walk, color: Colors.grey, size: 14),
+                    Text(
+                      '${tiempo.toStringAsFixed(0)} min',
+                      textAlign: TextAlign.left,
+                      style: const TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                
+                Text(
+                  '${distancia.toStringAsFixed(0)} mts',
+
+                  textAlign: TextAlign.left,
+                  style: const TextStyle(fontSize: 12, color: Colors.black, fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
       center = lugar.coord;
       notifyListeners();
       mapController.move(lugar.coord, 17);
