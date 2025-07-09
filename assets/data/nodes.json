@@ -1,38 +1,222 @@
 [
-  {
-    "id": "n1",
-    "tipo": "entrada",
-    "nombre": "Entrada Principal",
-    "sector": 0,
-    "nivel": 1,
-    "coord": { "lat": -33.4460, "lng": -70.6820 },
-    "vecinos": ["n2", "n3"]
-  },
-  {
-    "id": "n2",
-    "tipo": "edificio",
-    "nombre": "Biblioteca",
-    "sector": 1,
-    "nivel": 1,
-    "coord": { "lat": -33.4462, "lng": -70.6810 },
-    "vecinos": ["n1", "n4"]
-  },
-  {
-    "id": "n3",
-    "tipo": "edificio",
-    "nombre": "Facultad de Humanidades",
-    "sector": 2,
-    "nivel": 1,
-    "coord": { "lat": -33.448183, "lng": -70.682983 },
-    "vecinos": ["n1", "n4"]
-  },
-  {
-    "id": "n4",
-    "tipo": "camino",
-    "nombre": "Patio Central",
-    "sector": 1,
-    "nivel": 1,
-    "coord": { "lat": -33.4465, "lng": -70.6815 },
-    "vecinos": ["n2", "n3"]
-  }
+    {
+        "id": "camino_belleto_derecho_6_1",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4489345,
+            "lng": -70.6828332
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_2",
+                "peso": 34.227743242285925
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_2",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4490387,
+            "lng": -70.6831799
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_1",
+                "peso": 34.227743242285925
+            },
+            {
+                "id": "camino_belleto_derecho_6_3",
+                "peso": 17.630108043306315
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_3",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4488804,
+            "lng": -70.6831741
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_2",
+                "peso": 17.630108043306315
+            },
+            {
+                "id": "camino_belleto_derecho_6_4",
+                "peso": 18.94470908455586
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_4",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4487115,
+            "lng": -70.6831491
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_3",
+                "peso": 18.94470908455586
+            },
+            {
+                "id": "camino_belleto_derecho_6_5",
+                "peso": 21.365900089266415
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_5",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4485217,
+            "lng": -70.6831149
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_4",
+                "peso": 21.365900089266415
+            },
+            {
+                "id": "camino_belleto_derecho_6_6",
+                "peso": 73.5844101725918
+            },
+            {
+                "id": "Facultad_de_Humanidades",
+                "peso": 12.363940337892537
+            }
+        ]
+    },
+    {
+        "id": "Facultad_de_Humanidades",
+        "tipo": "edificio",
+        "nombre": "Facultad de Humanidades",
+        "sector": 2,
+        "nivel": 1,
+        "coord": { "lat": -33.448183, "lng": -70.682983 },
+        "vecinos": [
+                {
+                    "id": "camino_belleto_derecho_6_5",
+                    "peso": 12.363940337892537
+                }
+            ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_6",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4478621,
+            "lng": -70.683063
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_5",
+                "peso": 73.5844101725918
+            },
+            {
+                "id": "camino_belleto_derecho_6_7",
+                "peso": 30.6182761182807
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_7",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4475871,
+            "lng": -70.6830568
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_6",
+                "peso": 30.6182761182807
+            },
+            {
+                "id": "camino_belleto_derecho_6_8",
+                "peso": 5.509263856067298
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_8",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4475378,
+            "lng": -70.683062
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_7",
+                "peso": 5.509263856067298
+            },
+            {
+                "id": "camino_belleto_derecho_6_9",
+                "peso": 73.60544612874669
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_9",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4468839,
+            "lng": -70.6829445
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_8",
+                "peso": 73.60544612874669
+            },
+            {
+                "id": "camino_belleto_derecho_6_10",
+                "peso": 6.107922000615357
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_10",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.44683,
+            "lng": -70.6829322
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_9",
+                "peso": 6.107922000615357
+            }
+        ]
+    }
 ]

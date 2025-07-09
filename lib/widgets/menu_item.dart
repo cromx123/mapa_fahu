@@ -6,8 +6,15 @@ class MenuItem extends StatelessWidget {
   final IconData? icon;
   final String? label;
   final String? url;
+  final VoidCallback? onTap;
 
-  const MenuItem({super.key, this.icon, this.label, this.url});
+  const MenuItem({
+    super.key,
+    this.icon,
+    this.label,
+    this.url,
+    this.onTap,
+  });
 
   void _launchURL(BuildContext context) async {
     if (url == null) return;
@@ -25,27 +32,16 @@ class MenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _launchURL(context),
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.teal, width: 2),
-          borderRadius: BorderRadius.circular(10),
+      onTap: onTap ?? () => _launchURL(context),
+      child: ListTile(
+        leading: Icon(icon, color: Colors.black),
+        title: Text(
+          label ?? '',
+          style: const TextStyle(color: Colors.black),
         ),
-        child: icon != null && label != null
-            ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(icon, size: 30, color: Colors.black),
-                  const SizedBox(height: 8),
-                  Text(
-                    label!,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 10),
-                  ),
-                ],
-              )
-            : const SizedBox.shrink(),
+        trailing: const Icon(Icons.arrow_forward_ios, color: Colors.grey),
       ),
     );
   }
 }
+

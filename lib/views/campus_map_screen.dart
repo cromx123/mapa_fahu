@@ -43,6 +43,14 @@ class CampusMapScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              if (controller.routePoints.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Distancia: ${controller.distancia.toStringAsFixed(2)} m',
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                ),
               Expanded(
                 child: FlutterMap(
                   mapController: controller.mapController,

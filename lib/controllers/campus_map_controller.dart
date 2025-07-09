@@ -18,6 +18,7 @@ class CampusMapController extends ChangeNotifier {
   Marker? userLocationMarker;
 
   List<LatLng> routePoints = [];
+  double distancia = 0.0;
 
   CampusMapController() {
     loadNodes();
@@ -73,9 +74,10 @@ class CampusMapController extends ChangeNotifier {
         return da < db ? a : b;
       });
 
-      final path = dijkstra(campusNodes, startNode.id, lugar.id);
-      routePoints = path.map((n) => n.coord).toList();
-
+      final resutlt = dijkstra(campusNodes, startNode.id, lugar.id);
+      routePoints = resutlt.path.map((n) => n.coord).toList();
+      distancia = resutlt.distance;
+      
       // Si userLocationMarker existe, añade primero tu ubicación real
       if (userLocationMarker != null) {
         routePoints.insert(0, userLocationMarker!.point);

@@ -1,8 +1,14 @@
 // utils/path_finder.dart
-import 'package:latlong2/latlong.dart';
 import '../models/campus_node.dart';
 
-List<CampusNode> dijkstra(
+class PathResult {
+  final List<CampusNode> path;
+  final double distance;
+
+  PathResult(this.path, this.distance);
+}
+
+PathResult dijkstra(
   List<CampusNode> nodes,
   String startId,
   String goalId,
@@ -25,12 +31,12 @@ List<CampusNode> dijkstra(
     if (currentId == goalId) break;
 
     final currentNode = nodes.firstWhere((n) => n.id == currentId);
-    for (final neighborId in currentNode.vecinos) {
+
+    for (final neighbor in currentNode.vecinos) {
+      final neighborId = neighbor.id;
       if (!unvisited.contains(neighborId)) continue;
 
-      final neighborNode = nodes.firstWhere((n) => n.id == neighborId);
-      final double alt = dist[currentId]! +
-          Distance().as(LengthUnit.Meter, currentNode.coord, neighborNode.coord);
+      final double alt = dist[currentId]! + neighbor.peso;
 
       if (alt < dist[neighborId]!) {
         dist[neighborId] = alt;
@@ -48,5 +54,7 @@ List<CampusNode> dijkstra(
     u = prev[u];
   }
 
-  return path;
+  final double totalDistance = dist[goalId]!;
+
+  return PathResult(path, totalDistance);
 }

@@ -2,13 +2,13 @@
 import 'package:latlong2/latlong.dart';
 
 class CampusNode {
-  final String id; 
-  final String tipo; // sala, edificio, camino, baño...
+  final String id;
+  final String tipo;
   final String nombre;
   final int sector;
-  final int nivel; // opcional, para edificios con varios niveles
+  final int nivel;
   final LatLng coord;
-  final List<String> vecinos; // ids de nodos vecinos
+  final List<Neighbor> vecinos;
 
   CampusNode({
     required this.id,
@@ -27,14 +27,28 @@ class CampusNode {
       nombre: json['nombre'],
       sector: json['sector'],
       nivel: json['nivel'],
-      coord: LatLng(
-        json['coord']['lat'],
-        json['coord']['lng'],
-      ),
-      vecinos: List<String>.from(json['vecinos']),
+      coord: LatLng(json['coord']['lat'], json['coord']['lng']),
+      vecinos: (json['vecinos'] as List)
+          .map((v) => Neighbor.fromJson(v))
+          .toList(),
     );
   }
 }
+
+class Neighbor {
+  final String id;
+  final double peso;
+
+  Neighbor({required this.id, required this.peso});
+
+  factory Neighbor.fromJson(Map<String, dynamic> json) {
+    return Neighbor(
+      id: json['id'],
+      peso: json['peso'],
+    );
+  }
+}
+
 
 List<CampusNode> campusNodes = [];
 
