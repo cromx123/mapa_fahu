@@ -60,7 +60,7 @@ class ConfigScreen extends StatelessWidget {
               ],
               onChanged: (value) {
                 if (value != null) {
-                 settings.setLocale(Locale(value));
+                 settings.setUnit(value);
                 }
               },
             ),
