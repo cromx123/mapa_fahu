@@ -101,47 +101,143 @@ abstract class AppLocalizations {
   /// **'Campus Map'**
   String get title;
 
-  /// No description provided for @settingsTitle.
+  /// No description provided for @cs_settingsTitle.
   ///
   /// In en, this message translates to:
   /// **'Settings'**
-  String get settingsTitle;
+  String get cs_settingsTitle;
 
-  /// No description provided for @language.
+  /// No description provided for @cs_language.
   ///
   /// In en, this message translates to:
   /// **'Language'**
-  String get language;
+  String get cs_language;
 
-  /// No description provided for @theme.
+  /// No description provided for @cs_theme.
   ///
   /// In en, this message translates to:
   /// **'Theme'**
-  String get theme;
+  String get cs_theme;
 
-  /// No description provided for @notifications.
+  /// No description provided for @cs_notifications.
   ///
   /// In en, this message translates to:
   /// **'Notifications'**
-  String get notifications;
+  String get cs_notifications;
 
-  /// No description provided for @savedRoutes.
+  /// No description provided for @cs_savedRoutes.
   ///
   /// In en, this message translates to:
   /// **'Saved Routes'**
-  String get savedRoutes;
+  String get cs_savedRoutes;
 
-  /// No description provided for @units.
+  /// No description provided for @cs_units.
   ///
   /// In en, this message translates to:
   /// **'Units'**
-  String get units;
+  String get cs_units;
 
-  /// No description provided for @helpAndSupport.
+  /// No description provided for @cs_helpAndSupport.
   ///
   /// In en, this message translates to:
   /// **'Help & Support'**
-  String get helpAndSupport;
+  String get cs_helpAndSupport;
+
+  /// No description provided for @ms_menuTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Menu'**
+  String get ms_menuTitle;
+
+  /// No description provided for @ms_login.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in'**
+  String get ms_login;
+
+  /// No description provided for @ms_portalUsach.
+  ///
+  /// In en, this message translates to:
+  /// **'USACH Portal'**
+  String get ms_portalUsach;
+
+  /// No description provided for @ms_portalFahu.
+  ///
+  /// In en, this message translates to:
+  /// **'FaHu Portal'**
+  String get ms_portalFahu;
+
+  /// No description provided for @ms_portalAlumnos.
+  ///
+  /// In en, this message translates to:
+  /// **'Student Portal'**
+  String get ms_portalAlumnos;
+
+  /// No description provided for @ms_onlineServices.
+  ///
+  /// In en, this message translates to:
+  /// **'Online Services'**
+  String get ms_onlineServices;
+
+  /// No description provided for @ms_onlineLibrary.
+  ///
+  /// In en, this message translates to:
+  /// **'Online Library'**
+  String get ms_onlineLibrary;
+
+  /// No description provided for @ms_settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get ms_settings;
+
+  /// No description provided for @ms_helpInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Help and Information'**
+  String get ms_helpInfo;
+
+  /// No description provided for @cms_searchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search place...'**
+  String get cms_searchHint;
+
+  /// No description provided for @cms_voiceSearchTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice search'**
+  String get cms_voiceSearchTooltip;
+
+  /// No description provided for @cms_openMenuTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Open menu'**
+  String get cms_openMenuTooltip;
+
+  /// No description provided for @cms_filterLibraries.
+  ///
+  /// In en, this message translates to:
+  /// **'Libraries'**
+  String get cms_filterLibraries;
+
+  /// No description provided for @cms_filterCasinos.
+  ///
+  /// In en, this message translates to:
+  /// **'Cafeterias'**
+  String get cms_filterCasinos;
+
+  /// No description provided for @cms_filterBathrooms.
+  ///
+  /// In en, this message translates to:
+  /// **'Bathrooms'**
+  String get cms_filterBathrooms;
+
+  /// No description provided for @cms_filterOthers.
+  ///
+  /// In en, this message translates to:
+  /// **'others...'**
+  String get cms_filterOthers;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

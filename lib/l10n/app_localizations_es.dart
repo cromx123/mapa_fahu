@@ -12,23 +12,71 @@ class AppLocalizationsEs extends AppLocalizations {
   String get title => 'Mapa del Campus';
 
   @override
-  String get settingsTitle => 'Configuración';
+  String get cs_settingsTitle => 'Configuración';
 
   @override
-  String get language => 'Idioma';
+  String get cs_language => 'Idioma';
 
   @override
-  String get theme => 'Tema';
+  String get cs_theme => 'Tema';
 
   @override
-  String get notifications => 'Notificaciones';
+  String get cs_notifications => 'Notificaciones';
 
   @override
-  String get savedRoutes => 'Trayectos Guardados';
+  String get cs_savedRoutes => 'Trayectos Guardados';
 
   @override
-  String get units => 'Unidad de Medida';
+  String get cs_units => 'Unidad de Medida';
 
   @override
-  String get helpAndSupport => 'Ayuda y Soporte';
+  String get cs_helpAndSupport => 'Ayuda y Soporte';
+
+  @override
+  String get ms_menuTitle => 'Menú';
+
+  @override
+  String get ms_login => 'Iniciar sesión';
+
+  @override
+  String get ms_portalUsach => 'Portal USACH';
+
+  @override
+  String get ms_portalFahu => 'Portal FaHu';
+
+  @override
+  String get ms_portalAlumnos => 'Portal Alumnos';
+
+  @override
+  String get ms_onlineServices => 'Servicios en Línea';
+
+  @override
+  String get ms_onlineLibrary => 'Biblioteca en Línea';
+
+  @override
+  String get ms_settings => 'Configuración';
+
+  @override
+  String get ms_helpInfo => 'Ayuda e información';
+
+  @override
+  String get cms_searchHint => 'Buscar lugar...';
+
+  @override
+  String get cms_voiceSearchTooltip => 'Buscar por voz';
+
+  @override
+  String get cms_openMenuTooltip => 'Abrir menú';
+
+  @override
+  String get cms_filterLibraries => 'Bibliotecas';
+
+  @override
+  String get cms_filterCasinos => 'Casinos';
+
+  @override
+  String get cms_filterBathrooms => 'Baños';
+
+  @override
+  String get cms_filterOthers => 'otros...';
 }

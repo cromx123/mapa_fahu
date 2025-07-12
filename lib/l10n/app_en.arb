@@ -1,11 +1,31 @@
 {
     "@@locale": "en",
     "title": "Campus Map",
-    "settingsTitle": "Settings",
-    "language": "Language",
-    "theme": "Theme",
-    "notifications": "Notifications",
-    "savedRoutes": "Saved Routes",
-    "units": "Units",
-    "helpAndSupport": "Help & Support"
+
+    "cs_settingsTitle": "Settings",
+    "cs_language": "Language",
+    "cs_theme": "Theme",
+    "cs_notifications": "Notifications",
+    "cs_savedRoutes": "Saved Routes",
+    "cs_units": "Units",
+    "cs_helpAndSupport": "Help & Support",
+
+    "ms_menuTitle": "Menu",
+    "ms_login": "Log in",
+    "ms_portalUsach": "USACH Portal",
+    "ms_portalFahu": "FaHu Portal",
+    "ms_portalAlumnos": "Student Portal",
+    "ms_onlineServices": "Online Services",
+    "ms_onlineLibrary": "Online Library",
+    "ms_settings": "Settings",
+    "ms_helpInfo": "Help and Information",
+
+    "cms_searchHint": "Search place...",
+    "cms_voiceSearchTooltip": "Voice search",
+    "cms_openMenuTooltip": "Open menu",
+
+    "cms_filterLibraries": "Libraries",
+    "cms_filterCasinos": "Cafeterias",
+    "cms_filterBathrooms": "Bathrooms",
+    "cms_filterOthers": "others..."
 }

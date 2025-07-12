@@ -15,7 +15,7 @@ class ConfigScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(localizations.settingsTitle),
+        title: Text(localizations.cs_settingsTitle),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -23,7 +23,7 @@ class ConfigScreen extends StatelessWidget {
         children: [
           ListTile(
             leading: const Icon(Icons.language, color: Colors.black),
-            title: Text(localizations.language),
+            title: Text(localizations.cs_language),
             trailing: DropdownButton<String>(
               value: settings.locale.languageCode,
               items: const [
@@ -39,7 +39,7 @@ class ConfigScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.color_lens, color: Colors.black),
-            title: Text(localizations.theme),
+            title: Text(localizations.cs_theme),
             trailing: DropdownButton<String>(
               value: settings.theme,
               items: const [
@@ -55,15 +55,15 @@ class ConfigScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.notifications, color: Colors.black),
-            title: Text(localizations.notifications),
+            title: Text(localizations.cs_notifications),
           ),
           ListTile(
             leading: const Icon(Icons.save, color: Colors.black),
-            title: Text(localizations.savedRoutes),
+            title: Text(localizations.cs_savedRoutes),
           ),
           ListTile(
             leading: const Icon(Icons.drive_file_rename_outline_sharp, color: Colors.black),
-            title: Text(localizations.units),
+            title: Text(localizations.cs_units),
             trailing: DropdownButton<String>(
               value: settings.unit,
               items: const [
@@ -79,7 +79,7 @@ class ConfigScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.help, color: Colors.black),
-            title: Text(localizations.helpAndSupport),
+            title: Text(localizations.cs_helpAndSupport),
           ),
         ],
       ),

@@ -5,6 +5,7 @@ import '../controllers/campus_map_controller.dart';
 import '../controllers/mic_controller.dart';
 import 'menu_screen.dart';
 import '../widgets/info_card.dart';
+import 'package:humanidades360/l10n/app_localizations.dart';
 
 class CampusMapScreen extends StatelessWidget {
   const CampusMapScreen({super.key});
@@ -13,6 +14,7 @@ class CampusMapScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Provider.of<CampusMapController>(context);
     final micController = Provider.of<MicController>(context, listen: false);
+    final localizations = AppLocalizations.of(context)!;
     final TextEditingController searchController = controller.searchController;
     
 
@@ -79,7 +81,7 @@ class CampusMapScreen extends StatelessWidget {
                                 controller: micController.searchController,
                                 onSubmitted: controller.buscarLugar,
                                 decoration: InputDecoration(
-                                  hintText: 'Buscar lugar...',
+                                  hintText: localizations.cms_searchHint,
                                   border: InputBorder.none,
                                 ),
                               ),
@@ -88,7 +90,7 @@ class CampusMapScreen extends StatelessWidget {
                             IconButton(
                               onPressed: (){ micController.isListening ? micController.stopListening() : micController.startListening();},
                               icon: Icon(micController.isListening ? Icons.mic : Icons.mic_none, color: Colors.teal),
-                              tooltip: 'Buscar por voz',
+                              tooltip: localizations.cms_voiceSearchTooltip,
                             ),
                             IconButton(
                               onPressed: () {
@@ -100,7 +102,7 @@ class CampusMapScreen extends StatelessWidget {
                                 );
                               },
                               icon: const Icon(Icons.menu, color: Colors.teal),
-                              tooltip: 'Abrir menú',
+                              tooltip: localizations.cms_openMenuTooltip,
                             ),
                           ],
                         ),
@@ -115,7 +117,7 @@ class CampusMapScreen extends StatelessWidget {
                   child: Row(
                     children: [
                       FilterChip(
-                        label: const Text('Bibliotecas', style: TextStyle(color: Colors.black , fontSize: 12, fontWeight: FontWeight.bold)),
+                        label: Text(localizations.cms_filterLibraries, style: TextStyle(color: Colors.black , fontSize: 12, fontWeight: FontWeight.bold)),
                         selected: false,
                         onSelected: (_){
                           searchController.text = 'Bibliotecas';
@@ -135,7 +137,7 @@ class CampusMapScreen extends StatelessWidget {
                       ),
                       const SizedBox(width: 8),
                       FilterChip(
-                        label: const Text('Casinos', style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold)),
+                        label: Text(localizations.cms_filterCasinos, style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold)),
                         selected: false,
                         
                         onSelected: (_){
@@ -155,7 +157,7 @@ class CampusMapScreen extends StatelessWidget {
                       ),
                       const SizedBox(width: 8),
                       FilterChip(
-                        label: const Text('Baños', style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold)),
+                        label: Text(localizations.cms_filterBathrooms, style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold)),
                         selected: false,
                         onSelected: (_){
                           searchController.text = 'Facultad de Humanidades';
@@ -174,7 +176,7 @@ class CampusMapScreen extends StatelessWidget {
                       ),
                       const SizedBox(width: 8),
                       FilterChip(
-                        label: const Text('otros...', style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold)),
+                        label: Text(localizations.cms_filterOthers, style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold)),
                         selected: false,
                         onSelected: (_){
                           searchController.text = 'otros';

@@ -12,23 +12,71 @@ class AppLocalizationsEn extends AppLocalizations {
   String get title => 'Campus Map';
 
   @override
-  String get settingsTitle => 'Settings';
+  String get cs_settingsTitle => 'Settings';
 
   @override
-  String get language => 'Language';
+  String get cs_language => 'Language';
 
   @override
-  String get theme => 'Theme';
+  String get cs_theme => 'Theme';
 
   @override
-  String get notifications => 'Notifications';
+  String get cs_notifications => 'Notifications';
 
   @override
-  String get savedRoutes => 'Saved Routes';
+  String get cs_savedRoutes => 'Saved Routes';
 
   @override
-  String get units => 'Units';
+  String get cs_units => 'Units';
 
   @override
-  String get helpAndSupport => 'Help & Support';
+  String get cs_helpAndSupport => 'Help & Support';
+
+  @override
+  String get ms_menuTitle => 'Menu';
+
+  @override
+  String get ms_login => 'Log in';
+
+  @override
+  String get ms_portalUsach => 'USACH Portal';
+
+  @override
+  String get ms_portalFahu => 'FaHu Portal';
+
+  @override
+  String get ms_portalAlumnos => 'Student Portal';
+
+  @override
+  String get ms_onlineServices => 'Online Services';
+
+  @override
+  String get ms_onlineLibrary => 'Online Library';
+
+  @override
+  String get ms_settings => 'Settings';
+
+  @override
+  String get ms_helpInfo => 'Help and Information';
+
+  @override
+  String get cms_searchHint => 'Search place...';
+
+  @override
+  String get cms_voiceSearchTooltip => 'Voice search';
+
+  @override
+  String get cms_openMenuTooltip => 'Open menu';
+
+  @override
+  String get cms_filterLibraries => 'Libraries';
+
+  @override
+  String get cms_filterCasinos => 'Cafeterias';
+
+  @override
+  String get cms_filterBathrooms => 'Bathrooms';
+
+  @override
+  String get cms_filterOthers => 'others...';
 }

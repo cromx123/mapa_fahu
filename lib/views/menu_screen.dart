@@ -1,6 +1,7 @@
 // views/menu_screen.dart
 import 'package:flutter/material.dart';
 import '../widgets/menu_item.dart';
+import 'package:humanidades360/l10n/app_localizations.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -8,6 +9,7 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    final localizations = AppLocalizations.of(context)!;
 
     return Scaffold(
       backgroundColor: Colors.transparent, // fondo transparente
@@ -42,10 +44,10 @@ class MenuScreen extends StatelessWidget {
                         bottomRight: Radius.circular(40),
                       ),
                     ),
-                    child: const Align(
+                    child: Align(
                       alignment: Alignment.center,
                       child: Text(
-                        'Menu',
+                        localizations.ms_menuTitle,
                         style: TextStyle(
                           fontSize: 28,
                           color: Colors.orange,
@@ -57,8 +59,8 @@ class MenuScreen extends StatelessWidget {
                   // Botón de iniciar sesión
                   ListTile(
                     leading: const Icon(Icons.login, color: Colors.grey),
-                    title: const Text(
-                      'Iniciar sesión',
+                    title:  Text(
+                      localizations.ms_login,
                       style: TextStyle(color: Colors.grey),
                     ),
                     onTap: () {
@@ -70,20 +72,20 @@ class MenuScreen extends StatelessWidget {
                   Expanded(
                     child: ListView(
                       children: [
-                        const MenuItem(icon: Icons.school, label: 'Portal USACH', url: 'https://www.usach.cl/'),
-                        const MenuItem(icon: Icons.laptop, label: 'Portal FaHu', url: 'https://fahu.usach.cl/'),
-                        const MenuItem(icon: Icons.person, label: 'Portal Alumnos', url: 'https://registro.usach.cl/index.php'),
+                        MenuItem(icon: Icons.school, label: localizations.ms_portalUsach, url: 'https://www.usach.cl/'),
+                        MenuItem(icon: Icons.laptop, label: localizations.ms_portalFahu, url: 'https://fahu.usach.cl/'),
+                        MenuItem(icon: Icons.person, label: localizations.ms_portalAlumnos, url: 'https://registro.usach.cl/index.php'),
                         MenuItem(
                           icon: Icons.laptop,
-                          label: 'Servicios en Línea',
+                          label: localizations.ms_onlineServices,
                           onTap: () {
                             Navigator.pushNamed(context, '/servicios_screen');
                           },
                         ),
-                        const MenuItem(icon: Icons.menu_book, label: 'Biblioteca en Línea', url: 'https://biblioteca.usach.cl/'),
+                        MenuItem(icon: Icons.menu_book, label: localizations.ms_settings, url: 'https://biblioteca.usach.cl/'),
                         MenuItem(
                           icon: Icons.settings,
-                          label: 'Configuración',
+                          label: localizations.ms_settings,
                           onTap: () {
                             Navigator.pushNamed(context, '/config_screen');
                           },

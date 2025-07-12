@@ -1,11 +1,31 @@
 {
     "@@locale": "es",
     "title": "Mapa del Campus",
-    "settingsTitle": "Configuración",
-    "language": "Idioma",
-    "theme": "Tema",
-    "notifications": "Notificaciones",
-    "savedRoutes": "Trayectos Guardados",
-    "units": "Unidad de Medida",
-    "helpAndSupport": "Ayuda y Soporte"
+
+    "cs_settingsTitle": "Configuración",
+    "cs_language": "Idioma",
+    "cs_theme": "Tema",
+    "cs_notifications": "Notificaciones",
+    "cs_savedRoutes": "Trayectos Guardados",
+    "cs_units": "Unidad de Medida",
+    "cs_helpAndSupport": "Ayuda y Soporte",
+
+    "ms_menuTitle": "Menú",
+    "ms_login": "Iniciar sesión",
+    "ms_portalUsach": "Portal USACH",
+    "ms_portalFahu": "Portal FaHu",
+    "ms_portalAlumnos": "Portal Alumnos",
+    "ms_onlineServices": "Servicios en Línea",
+    "ms_onlineLibrary": "Biblioteca en Línea",
+    "ms_settings": "Configuración",
+    "ms_helpInfo": "Ayuda e información",
+
+    "cms_searchHint": "Buscar lugar...",
+    "cms_voiceSearchTooltip": "Buscar por voz",
+    "cms_openMenuTooltip": "Abrir menú",
+
+    "cms_filterLibraries": "Bibliotecas",
+    "cms_filterCasinos": "Casinos",
+    "cms_filterBathrooms": "Baños",
+    "cms_filterOthers": "otros..."
 }
