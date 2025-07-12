@@ -40,6 +40,18 @@ class ConfigScreen extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.color_lens, color: Colors.black),
             title: Text(localizations.theme),
+            trailing: DropdownButton<String>(
+              value: settings.theme,
+              items: const [
+                DropdownMenuItem(value: 'light', child: Text('Light')),
+                DropdownMenuItem(value: 'dark', child: Text('Dark')),
+              ],
+              onChanged: (value) {
+                if (value != null) {
+                 settings.setTheme(value);
+                }
+              },
+            ),
           ),
           ListTile(
             leading: const Icon(Icons.notifications, color: Colors.black),
