@@ -61,7 +61,9 @@ class MenuScreen extends StatelessWidget {
                       'Iniciar sesión',
                       style: TextStyle(color: Colors.grey),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, '/solicitudes_screen');
+                    },
                   ),
                   const Divider(),
                   // Lista de opciones

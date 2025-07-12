@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:maps_fahu/controllers/campus_map_controller.dart';
+import 'package:humanidades360/controllers/campus_map_controller.dart';
 import 'package:provider/provider.dart';
 
 

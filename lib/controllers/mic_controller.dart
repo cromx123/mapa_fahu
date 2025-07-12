@@ -1,7 +1,7 @@
 // File: maps_fahu/lib/controllers/mic_controller.dart
 import 'package:flutter/material.dart';
 import 'package:speech_to_text/speech_to_text.dart';
-import 'package:maps_fahu/controllers/campus_map_controller.dart';
+import 'package:humanidades360/controllers/campus_map_controller.dart';
 
 class MicController extends ChangeNotifier {
   CampusMapController controller;

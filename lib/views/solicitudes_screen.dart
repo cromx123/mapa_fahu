@@ -2,7 +2,9 @@
 import 'package:flutter/material.dart';
 
 class SolicitudesView extends StatelessWidget {
-  final List<Map<String, dynamic>> solicitudes = [
+  const SolicitudesView({super.key});
+
+  final List<Map<String, dynamic>> solicitudes = const [
     {
       'tipo': 'Reincorporación por reprobación por segunda o más veces',
       'estado': 'Aceptada',
@@ -15,33 +17,37 @@ class SolicitudesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Solicitudes')),
+      appBar: AppBar(title: const Text('Solicitudes')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
+            Wrap(
+              spacing: 16, // espacio horizontal entre los elementos
+              runSpacing: 8, // espacio vertical entre las filas cuando saltan
+              crossAxisAlignment: WrapCrossAlignment.center,
               children: [
                 DropdownButton<String>(
                   value: 'Primer semestre del año 2025',
-                  items: [
+                  items: const [
                     DropdownMenuItem(
-                      child: Text('Primer semestre del año 2025'),
                       value: 'Primer semestre del año 2025',
+                      child: Text('Primer semestre del año 2025'),
                     ),
                   ],
-                  onChanged: (value) {},
+                  onChanged: null, // o tu lógica cuando la tengas
                 ),
-                const SizedBox(width: 16),
                 ElevatedButton(
                   onPressed: () {},
-                  child: Text('Filtrar'),
+                  child: const Text('Filtrar'),
                 ),
-                Spacer(),
+                // Spacer no tiene sentido en Wrap, así que lo quitamos
                 ElevatedButton(
-                  onPressed: () {},
-                  child: Text('Nueva solicitud'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/formulario_cae');
+                  },
+                  child: const Text('Nueva solicitud'),
                 ),
               ],
             ),
@@ -50,7 +56,7 @@ class SolicitudesView extends StatelessWidget {
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: DataTable(
-                  columns: [
+                  columns: const [
                     DataColumn(label: Text('#')),
                     DataColumn(label: Text('Tipo de solicitud')),
                     DataColumn(label: Text('Estado')),
@@ -66,7 +72,7 @@ class SolicitudesView extends StatelessWidget {
                           DataCell(Text('${entry.key + 1}')),
                           DataCell(Text(entry.value['tipo'])),
                           DataCell(Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 8, vertical: 4),
                             decoration: BoxDecoration(
                               color: Colors.green.shade100,
@@ -86,13 +92,13 @@ class SolicitudesView extends StatelessWidget {
                                   'Actualización: ${entry.value['ultimaActualizacion']}'),
                             ],
                           )),
-                          DataCell(
+                          const DataCell(
                             Icon(Icons.file_present, color: Colors.blue),
                           ),
                           DataCell(Row(
                             children: [
                               IconButton(
-                                icon: Icon(Icons.visibility),
+                                icon: const Icon(Icons.visibility),
                                 onPressed: () {},
                               ),
                             ],
