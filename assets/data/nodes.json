@@ -115,8 +115,1209 @@
                 {
                     "id": "camino_belleto_derecho_6_5",
                     "peso": 12.363940337892537
+                },
+                {
+                    "id": "camino_biblioteca_Fahu_salida_6_23",
+                    "peso": 10.363940337892537
                 }
             ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_6",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4478621,
+            "lng": -70.683063
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_5",
+                "peso": 73.5844101725918
+            },
+            {
+                "id": "camino_belleto_derecho_6_7",
+                "peso": 30.6182761182807
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_7",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4475871,
+            "lng": -70.6830568
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_6",
+                "peso": 30.6182761182807
+            },
+            {
+                "id": "camino_belleto_derecho_6_8",
+                "peso": 5.509263856067298
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_8",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4475378,
+            "lng": -70.683062
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_7",
+                "peso": 5.509263856067298
+            },
+            {
+                "id": "camino_belleto_derecho_6_9",
+                "peso": 73.60544612874669
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_9",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4468839,
+            "lng": -70.6829445
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_8",
+                "peso": 73.60544612874669
+            },
+            {
+                "id": "camino_belleto_derecho_6_10",
+                "peso": 6.107922000615357
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_10",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.44683,
+            "lng": -70.6829322
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_9",
+                "peso": 6.107922000615357
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_1",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4486661,
+            "lng": -70.6809766
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_2",
+                "peso": 0.0
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_2",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4486661,
+            "lng": -70.6809766
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_1",
+                "peso": 0.0
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_3",
+                "peso": 30.222372233655967
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_3",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484884,
+            "lng": -70.6812226
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_2",
+                "peso": 30.22237223365596
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_4",
+                "peso": 7.043554847276007
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_4",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484735,
+            "lng": -70.6812963
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_3",
+                "peso": 7.043554847276007
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_5",
+                "peso": 7.911709324660238
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_5",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484668,
+            "lng": -70.6813811
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_4",
+                "peso": 7.911709324660237
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_6",
+                "peso": 6.871638862329466
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_6",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484639,
+            "lng": -70.681455
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_5",
+                "peso": 6.871638862329468
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_7",
+                "peso": 7.743936858612673
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_7",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484713,
+            "lng": -70.6815379
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_6",
+                "peso": 7.743936858612673
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_8",
+                "peso": 10.290564592891588
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_8",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484522,
+            "lng": -70.6816463
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_7",
+                "peso": 10.290564592891588
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_9",
+                "peso": 8.644895476952426
+            },
+            {
+                "id": "camino__1_12",
+                "peso": 0.006448954769524
+            }
+        ]
+    },
+    {
+        "id": "camino__1_12",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484842,
+            "lng": -70.6816247
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_11",
+                "peso": 6.342734850475945
+            },
+            {
+                "id": "camino__1_13",
+                "peso": 10.6423419319879
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_8",
+                "peso": 0.006448954769524
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_9",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484394,
+            "lng": -70.6817381
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_8",
+                "peso": 8.644895476952424
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_10",
+                "peso": 9.325226316475097
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_10",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484265,
+            "lng": -70.6818373
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_9",
+                "peso": 9.325226316475097
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_11",
+                "peso": 6.271965619827751
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_11",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484219,
+            "lng": -70.6819046
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_10",
+                "peso": 6.271965619827751
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_12",
+                "peso": 6.128921904078028
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_12",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484191,
+            "lng": -70.6819705
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_11",
+                "peso": 6.128921904078028
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_13",
+                "peso": 9.542185691433197
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_13",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.448426,
+            "lng": -70.6820729
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_12",
+                "peso": 9.542185691433197
+            },
+            {
+                "id": "entrada_biblioteca_Fahu_salida_6_14",
+                "peso": 9.083649008502155
+            }
+        ]
+    },
+    {
+        "id": "entrada_biblioteca_Fahu_salida_6_14",
+        "tipo": "entrada",
+        "nombre": "entrada_biblioteca_fahu",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.448417,
+            "lng": -70.6821701
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_13",
+                "peso": 9.083649008502155
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_15",
+                "peso": 6.892851253623077
+            },
+            {
+                "id": "biblioteca_Fahu_salida",
+                "peso": 1.083649008502155
+            }
+        ]
+    },
+    {
+        "id": "biblioteca_Fahu_salida",
+        "tipo": "biblioteca",
+        "nombre": "Biblioteca Facultad de Humanidades",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.448415,
+            "lng": -70.6821701
+        },
+        "vecinos": [
+            {
+                "id": "entrada_biblioteca_Fahu_salida_6_14",
+                "peso": 1.083649008502155
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_15",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484105,
+            "lng": -70.6822439
+        },
+        "vecinos": [
+            {
+                "id": "entrada_biblioteca_Fahu_salida_6_14",
+                "peso": 6.892851253623077
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_16",
+                "peso": 9.360131826094985
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_16",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484253,
+            "lng": -70.6823431
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_15",
+                "peso": 9.360131826094985
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_17",
+                "peso": 8.777583481570153
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_17",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484113,
+            "lng": -70.6824361
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_16",
+                "peso": 8.777583481570153
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_18",
+                "peso": 7.646591244049671
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_18",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.448421,
+            "lng": -70.6825176
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_17",
+                "peso": 7.646591244049671
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_19",
+                "peso": 7.608724869139572
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_19",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484108,
+            "lng": -70.6825986
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_18",
+                "peso": 7.608724869139572
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_20",
+                "peso": 8.089682544865587
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_20",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484074,
+            "lng": -70.6826856
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_19",
+                "peso": 8.089682544865587
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_21",
+                "peso": 9.030433698771208
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_21",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4484019,
+            "lng": -70.6827826
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_20",
+                "peso": 9.03043369877121
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_22",
+                "peso": 9.516494821375646
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_22",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.448393,
+            "lng": -70.6828845
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_21",
+                "peso": 9.516494821375646
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_23",
+                "peso": 7.058644268800161
+            }
+        ]
+    },
+    {
+        "id": "camino_biblioteca_Fahu_salida_6_23",
+        "tipo": "camino",
+        "nombre": "biblioteca_Fahu_salida",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4483793,
+            "lng": -70.6829587
+        },
+        "vecinos": [
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_22",
+                "peso": 7.058644268800161
+            },
+            {
+                "id": "camino_belleto_derecho_6_5",
+                "peso": 6.6627549647413495
+            },
+            {
+                "id": "Facultad_de_Humanidades",
+                "peso": 10.363940337892537
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_5",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4485217,
+            "lng": -70.6831149
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_4",
+                "peso": 21.365900089266415
+            },
+            {
+                "id": "camino_belleto_derecho_6_6",
+                "peso": 73.5844101725918
+            },
+            {
+                "id": "Facultad_de_Humanidades",
+                "peso": 12.363940337892537
+            },
+            {
+                "id": "camino_biblioteca_Fahu_salida_6_23",
+                "peso": 6.6627549647413495
+            }
+        ]
+    },
+    {
+        "id": "camino__1_1",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4491493,
+            "lng": -70.6827769
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_2",
+                "peso": 0.0
+            }
+        ]
+    },
+    {
+        "id": "camino__1_2",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4491493,
+            "lng": -70.6827769
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_1",
+                "peso": 0.0
+            },
+            {
+                "id": "camino__1_3",
+                "peso": 95.27887266222787
+            }
+        ]
+    },
+    {
+        "id": "camino__1_3",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4493531,
+            "lng": -70.6817806
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_2",
+                "peso": 95.27887266222787
+            },
+            {
+                "id": "camino__1_4",
+                "peso": 18.188979900193793
+            }
+        ]
+    },
+    {
+        "id": "camino__1_4",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4491936,
+            "lng": -70.6817381
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_3",
+                "peso": 18.188979900193793
+            },
+            {
+                "id": "camino__1_5",
+                "peso": 7.75629999886679
+            }
+        ]
+    },
+    {
+        "id": "camino__1_5",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.449124,
+            "lng": -70.6817342
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_4",
+                "peso": 7.75629999886679
+            },
+            {
+                "id": "camino__1_6",
+                "peso": 17.161938398276476
+            }
+        ]
+    },
+    {
+        "id": "camino__1_6",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4489699,
+            "lng": -70.6817397
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_5",
+                "peso": 17.161938398276476
+            },
+            {
+                "id": "camino__1_7",
+                "peso": 10.49834947611614
+            }
+        ]
+    },
+    {
+        "id": "camino__1_7",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4488802,
+            "lng": -70.6817048
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_6",
+                "peso": 10.49834947611614
+            },
+            {
+                "id": "camino__1_8",
+                "peso": 9.086909638437994
+            }
+        ]
+    },
+    {
+        "id": "camino__1_8",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4487987,
+            "lng": -70.6816993
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_7",
+                "peso": 9.086909638437994
+            },
+            {
+                "id": "camino__1_9",
+                "peso": 6.9030089162421655
+            }
+        ]
+    },
+    {
+        "id": "camino__1_9",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.448738,
+            "lng": -70.6816841
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_8",
+                "peso": 6.9030089162421655
+            },
+            {
+                "id": "camino__1_10",
+                "peso": 11.587921523573872
+            }
+        ]
+    },
+    {
+        "id": "camino__1_10",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4486401,
+            "lng": -70.6816417
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_9",
+                "peso": 11.587921523573872
+            },
+            {
+                "id": "camino__1_11",
+                "peso": 11.097023476275105
+            }
+        ]
+    },
+    {
+        "id": "camino__1_11",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4485406,
+            "lng": -70.6816344
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_10",
+                "peso": 11.097023476275105
+            },
+            {
+                "id": "camino__1_12",
+                "peso": 6.342734850475945
+            }
+        ]
+    },
+    {
+        "id": "camino__1_13",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4483886,
+            "lng": -70.6816254
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_12",
+                "peso": 10.6423419319879
+            },
+            {
+                "id": "camino__1_14",
+                "peso": 7.7462592650929905
+            }
+        ]
+    },
+    {
+        "id": "camino__1_14",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4483213,
+            "lng": -70.6816466
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_13",
+                "peso": 7.7462592650929905
+            },
+            {
+                "id": "camino__1_15",
+                "peso": 8.545435867329633
+            }
+        ]
+    },
+    {
+        "id": "camino__1_15",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4482474,
+            "lng": -70.6816715
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_14",
+                "peso": 8.545435867329633
+            },
+            {
+                "id": "camino__1_16",
+                "peso": 7.058472782642617
+            }
+        ]
+    },
+    {
+        "id": "camino__1_16",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4481844,
+            "lng": -70.6816801
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_15",
+                "peso": 7.058472782642617
+            },
+            {
+                "id": "camino__1_17",
+                "peso": 8.507426827523016
+            }
+        ]
+    },
+    {
+        "id": "camino__1_17",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4481082,
+            "lng": -70.6816731
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_16",
+                "peso": 8.507426827523016
+            },
+            {
+                "id": "camino__1_18",
+                "peso": 8.70165438048002
+            }
+        ]
+    },
+    {
+        "id": "camino__1_18",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.448031,
+            "lng": -70.6816584
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_17",
+                "peso": 8.70165438048002
+            },
+            {
+                "id": "camino__1_19",
+                "peso": 8.03451893926245
+            }
+        ]
+    },
+    {
+        "id": "camino__1_19",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4479594,
+            "lng": -70.6816693
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_18",
+                "peso": 8.03451893926245
+            },
+            {
+                "id": "camino__1_20",
+                "peso": 6.818666771442894
+            }
+        ]
+    },
+    {
+        "id": "camino__1_20",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4479052,
+            "lng": -70.6816351
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_19",
+                "peso": 6.818666771442894
+            },
+            {
+                "id": "camino__1_21",
+                "peso": 7.905301818042121
+            }
+        ]
+    },
+    {
+        "id": "camino__1_21",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4478355,
+            "lng": -70.6816188
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_20",
+                "peso": 7.905301818042121
+            },
+            {
+                "id": "camino__1_22",
+                "peso": 11.02355313350225
+            }
+        ]
+    },
+    {
+        "id": "camino__1_22",
+        "tipo": "camino",
+        "nombre": "",
+        "sector": 1,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4477369,
+            "lng": -70.6816078
+        },
+        "vecinos": [
+            {
+                "id": "camino__1_21",
+                "peso": 11.02355313350225
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_1",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4489345,
+            "lng": -70.6828332
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_2",
+                "peso": 34.227743242285925
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_2",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4490387,
+            "lng": -70.6831799
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_1",
+                "peso": 34.227743242285925
+            },
+            {
+                "id": "camino_belleto_derecho_6_3",
+                "peso": 17.630108043306315
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_3",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4488804,
+            "lng": -70.6831741
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_2",
+                "peso": 17.630108043306315
+            },
+            {
+                "id": "camino_belleto_derecho_6_4",
+                "peso": 18.94470908455586
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_4",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4487115,
+            "lng": -70.6831491
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_3",
+                "peso": 18.94470908455586
+            },
+            {
+                "id": "camino_belleto_derecho_6_5",
+                "peso": 21.365900089266415
+            }
+        ]
+    },
+    {
+        "id": "camino_belleto_derecho_6_5",
+        "tipo": "camino",
+        "nombre": "belleto_derecho",
+        "sector": 6,
+        "nivel": 1,
+        "coord": {
+            "lat": -33.4485217,
+            "lng": -70.6831149
+        },
+        "vecinos": [
+            {
+                "id": "camino_belleto_derecho_6_4",
+                "peso": 21.365900089266415
+            },
+            {
+                "id": "camino_belleto_derecho_6_6",
+                "peso": 73.5844101725918
+            }
+        ]
     },
     {
         "id": "camino_belleto_derecho_6_6",

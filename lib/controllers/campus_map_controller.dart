@@ -19,7 +19,9 @@ class CampusMapController extends ChangeNotifier {
 
   List<LatLng> routePoints = [];
   double distancia = 0.0;
-  double tiempo = 0.0;
+  double distanciaKm = 0.0;
+  double tiempoMinutos = 0.0;
+  double tiempoHoras = 0.0;
   final double velocidadPromedio = 5.0; // Velocidad promedio en k/h
   String selectedPlaceName = '';
   String selectedPlaceFloor = '';
@@ -87,8 +89,10 @@ class CampusMapController extends ChangeNotifier {
 
       final resutlt = dijkstra(campusNodes, startNode.id, lugar.id);
       routePoints = resutlt.path.map((n) => n.coord).toList();
-      distancia = resutlt.distance;
-      tiempo = distancia / velocidadPromedio;
+      distancia = resutlt.distance ;
+      distanciaKm = distancia / 1000; // Convertir a kilómetros
+      tiempoHoras = distanciaKm / velocidadPromedio;
+      tiempoMinutos = tiempoHoras * 60; // Convertir a minutos
 
       // Si userLocationMarker existe, añade primero tu ubicación real
       if (userLocationMarker != null) {
@@ -109,7 +113,7 @@ class CampusMapController extends ChangeNotifier {
       markers.add(
         Marker(
           point: labelPoint,
-          width: 80, 
+          width: 100, 
           height: 40,
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
@@ -132,7 +136,7 @@ class CampusMapController extends ChangeNotifier {
                   children: [
                     Icon(Icons.directions_walk, color: Colors.grey, size: 14),
                     Text(
-                      '${tiempo.toStringAsFixed(0)} min',
+                      '${tiempoMinutos.toStringAsFixed(2)} min',
                       textAlign: TextAlign.left,
                       style: const TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
                     ),
