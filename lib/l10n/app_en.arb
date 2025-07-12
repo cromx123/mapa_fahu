@@ -1,0 +1,11 @@
+{
+    "@@locale": "en",
+    "title": "Campus Map",
+    "settingsTitle": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "notifications": "Notifications",
+    "savedRoutes": "Saved Routes",
+    "units": "Units",
+    "helpAndSupport": "Help & Support"
+}

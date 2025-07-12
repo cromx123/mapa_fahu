@@ -99,7 +99,9 @@ class SolicitudesView extends StatelessWidget {
                             children: [
                               IconButton(
                                 icon: const Icon(Icons.visibility),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/estado_solicitud');
+                                },
                               ),
                             ],
                           )),

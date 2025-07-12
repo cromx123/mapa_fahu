@@ -1,0 +1,11 @@
+{
+    "@@locale": "es",
+    "title": "Mapa del Campus",
+    "settingsTitle": "Configuración",
+    "language": "Idioma",
+    "theme": "Tema",
+    "notifications": "Notificaciones",
+    "savedRoutes": "Trayectos Guardados",
+    "units": "Unidad de Medida",
+    "helpAndSupport": "Ayuda y Soporte"
+}

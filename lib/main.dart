@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:humanidades360/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'controllers/settings_controller.dart';
 import 'controllers/campus_map_controller.dart';
 import 'controllers/mic_controller.dart';
 import 'views/campus_map_screen.dart';
@@ -8,6 +11,7 @@ import 'views/config_screen.dart';
 import 'views/servicios_screen.dart';
 import 'views/solicitudes_screen.dart';
 import 'views/formulario_cae.dart';
+import 'views/estado_sol_screen.dart';
 
 void main() {
   runApp(
@@ -19,6 +23,7 @@ void main() {
           update: (context, campusMapController, previousMicController) =>
               previousMicController!..updateController(campusMapController),
         ),
+        ChangeNotifierProvider(create: (_) => SettingsController()),
       ],
       child: const CampusMapApp(),
     ),
@@ -30,9 +35,22 @@ class CampusMapApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localeController = Provider.of<SettingsController>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Mapa del Campus',
+      locale: localeController.locale,
+      supportedLocales: const [
+        Locale('es'),
+        Locale('en'),
+      ],
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       home: const CampusMapScreen(),
       routes: {
         '/menu_screen': (context) => const MenuScreen(),
@@ -40,6 +58,7 @@ class CampusMapApp extends StatelessWidget {
         '/servicios_screen': (context) => const ServiciosScreen(),
         '/solicitudes_screen': (context) => const SolicitudesView(),
         '/formulario_cae': (context) => const FormularioHtmlScreen(),
+        '/estado_solicitud': (context) => const EstadosSolicitudesScreen(),
       },
     );
   }
