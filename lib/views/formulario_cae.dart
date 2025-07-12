@@ -1,12 +1,14 @@
 // views/formulario_screen.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
+
 
 class HtmlWidget extends StatelessWidget {
-  final String htmlData = """
+  static const String htmlData = """
     <h2>Título en HTML</h2>
     <p>Este es un párrafo <b>en negrita</b> con <a href='https://flutter.dev'>un enlace</a>.</p>
   """;
+
+  const HtmlWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

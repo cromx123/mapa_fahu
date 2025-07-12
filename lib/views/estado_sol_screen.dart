@@ -11,7 +11,7 @@ class EstadosSolicitudesScreen extends StatelessWidget {
         title: const Text('Solicitud'),
       ),
       body: const Column(
-        mainAxisAlignment: MainAxisAlignment.top,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ListTile(

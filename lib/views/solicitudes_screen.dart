@@ -1,13 +1,6 @@
 // views/solicitudes_screen.dart
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: SolicitudesView(),
-    debugShowCheckedModeBanner: false,
-  ));
-}
-
 class SolicitudesView extends StatelessWidget {
   final List<Map<String, dynamic>> solicitudes = [
     {

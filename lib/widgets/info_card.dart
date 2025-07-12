@@ -38,19 +38,19 @@ class PlaceInfoCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    'Nombre: ${controller.selectedPlaceName ?? 'N/A'}',
+                    'Nombre: ${controller.selectedPlaceName.isNotEmpty ? controller.selectedPlaceName : 'N/A'}',
                     style: const TextStyle(fontSize: 12),
                   ),
                   Text(
-                    'Piso: ${controller.selectedPlaceFloor ?? 'N/A'}',
+                    'Piso: ${controller.selectedPlaceFloor.isNotEmpty ? controller.selectedPlaceFloor : 'N/A'}',
                     style: const TextStyle(fontSize: 12),
                   ),
                   Text(
-                    'Sector: ${controller.selectedPlaceSector ?? 'N/A'}',
+                    'Sector: ${controller.selectedPlaceSector.isNotEmpty ? controller.selectedPlaceSector : 'N/A'}',
                     style: const TextStyle(fontSize: 12),
                   ),
                   Text(
-                    'Tipo: ${controller.selectedPlaceType ?? 'N/A'}',
+                    'Tipo: ${controller.selectedPlaceType.isNotEmpty ? controller.selectedPlaceType : 'N/A'}',
                     style: const TextStyle(fontSize: 12),
                   ),
                 ],

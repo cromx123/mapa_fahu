@@ -5,6 +5,7 @@ import 'controllers/mic_controller.dart';
 import 'views/campus_map_screen.dart';
 import 'views/menu_screen.dart';
 import 'views/config_screen.dart';
+import 'views/servicios_screen.dart';
 
 void main() {
   runApp(
@@ -35,7 +36,6 @@ class CampusMapApp extends StatelessWidget {
         '/menu_screen': (context) => const MenuScreen(),
         '/config_screen': (context) => const ConfigScreen(),
         '/servicios_screen': (context) => const ServiciosScreen(),
-        '/solicitudes_screen': (context) => const SolicitudesView(),
       },
     );
   }
