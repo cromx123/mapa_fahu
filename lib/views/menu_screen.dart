@@ -69,6 +69,13 @@ class MenuScreen extends StatelessWidget {
                     child: ListView(
                       children: [
                         const MenuItem(icon: Icons.school, label: 'Portal USACH', url: 'https://www.usach.cl/'),
+                        MenuItem(
+                          icon: Icons.laptop,
+                          label: 'Portal FaHu',
+                          onTap: () {
+                            Navigator.pushNamed(context, '/servicios_screen');
+                          },
+                        ),
                         const MenuItem(icon: Icons.person, label: 'Portal Alumnos', url: 'https://registro.usach.cl/index.php'),
                         const MenuItem(icon: Icons.visibility, label: 'Servicios en Línea', url: 'https://www.serviciosweb.usach.cl/login'),
                         const MenuItem(icon: Icons.menu_book, label: 'Biblioteca en Línea', url: 'https://biblioteca.usach.cl/'),
@@ -87,7 +94,7 @@ class MenuScreen extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.all(12),
                     child: Text(
-                      'Solutions maps & Fahu\n1.0.1',
+                      'Solutions maps & Fahu\n1.0.3',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 12, color: Colors.grey),
                     ),

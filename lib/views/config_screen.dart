@@ -11,7 +11,7 @@ class ConfigScreen extends StatelessWidget {
         title: const Text('Configuración'),
       ),
       body: const Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ListTile(

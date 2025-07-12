@@ -34,6 +34,8 @@ class CampusMapApp extends StatelessWidget {
       routes: {
         '/menu_screen': (context) => const MenuScreen(),
         '/config_screen': (context) => const ConfigScreen(),
+        '/servicios_screen': (context) => const ServiciosScreen(),
+        '/solicitudes_screen': (context) => const SolicitudesView(),
       },
     );
   }
