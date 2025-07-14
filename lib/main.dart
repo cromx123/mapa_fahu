@@ -12,6 +12,7 @@ import 'views/servicios_screen.dart';
 import 'views/solicitudes_screen.dart';
 import 'views/formulario_cae.dart';
 import 'views/estado_sol_screen.dart';
+import '/views/foto_screen.dart';
 
 void main() {
   runApp(
@@ -57,8 +58,9 @@ class CampusMapApp extends StatelessWidget {
         '/config_screen': (context) => const ConfigScreen(),
         '/servicios_screen': (context) => const ServiciosScreen(),
         '/solicitudes_screen': (context) => const SolicitudesView(),
-        '/formulario_cae': (context) => const FormularioHtmlScreen(),
+        '/formulario_cae': (context) {final args = ModalRoute.of(context)!.settings.arguments as String; return FormularioHtmlScreen(base64Logo: args);},
         '/estado_solicitud': (context) => const EstadosSolicitudesScreen(),
+        '/foto_screen'     : (context) => FotoScreen(),
       },
     );
   }
