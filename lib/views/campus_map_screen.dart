@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:provider/provider.dart';
@@ -15,213 +16,211 @@ class CampusMapScreen extends StatelessWidget {
     final controller = Provider.of<CampusMapController>(context);
     final micController = Provider.of<MicController>(context, listen: false);
     final localizations = AppLocalizations.of(context)!;
-    final TextEditingController searchController = controller.searchController;
-    
+    final searchController = controller.searchController;
+
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isLargeScreen = kIsWeb || screenWidth > 800;
 
     return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: FlutterMap(
-              mapController: controller.mapController,
-              options: MapOptions(
-                initialCenter: controller.center,
-                initialZoom: 17,
-              ),
+      body: isLargeScreen
+          ? Row(
               children: [
-                TileLayer(
-                  urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                  userAgentPackageName: 'com.example.campusmap',
-                ),
                 if (controller.routePoints.isNotEmpty)
-                  PolylineLayer(
-                    polylines: [
-                      Polyline(
-                        points: controller.routePoints,
-                        strokeWidth: 4,
-                        color: Colors.blue,
-                      ),
-                    ],
+                  const SizedBox(
+                    child: PlaceInfoCard(),
                   ),
-                MarkerLayer(markers: [
-                  if (controller.userLocationMarker != null) controller.userLocationMarker!,
-                  ...controller.markers,
-                ]),
+                Expanded(
+                  flex: 3,
+                  child: buildMapWithControls(
+                    context, controller, micController, localizations, searchController,
+                  ),
+                ),
+              ],
+            )
+          : Stack(
+              children: [
+                buildMapWithControls(
+                  context, controller, micController, localizations, searchController,
+                ),
+                if (controller.routePoints.isNotEmpty && controller.isInfoCardVisible)
+                  Positioned(
+                    bottom: 0,
+                    child: PlaceInfoCard(),
+                  ),
               ],
             ),
-          ),
-          Positioned(
-            top: 40,
-            left: 16,
-            right: 16,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black26,
-                              blurRadius: 8,
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          children: [
-                            const Icon(Icons.location_on, color: Colors.red),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: TextField(
-                                controller: micController.searchController,
-                                onSubmitted: controller.buscarLugar,
-                                decoration: InputDecoration(
-                                  hintText: localizations.cms_searchHint,
-                                  border: InputBorder.none,
-                                ),
-                              ),
-                            ),
+    );
+  }
 
-                            IconButton(
-                              onPressed: (){ micController.isListening ? micController.stopListening() : micController.startListening();},
-                              icon: Icon(micController.isListening ? Icons.mic : Icons.mic_none, color: Colors.teal),
-                              tooltip: localizations.cms_voiceSearchTooltip,
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                Navigator.of(context).push(
-                                  PageRouteBuilder(
-                                    opaque: false,
-                                    pageBuilder: (_, __, ___) => const MenuScreen(),
-                                  ),
-                                );
-                              },
-                              icon: const Icon(Icons.menu, color: Colors.teal),
-                              tooltip: localizations.cms_openMenuTooltip,
-                            ),
-                          ],
-                        ),
-                      ),
+  Widget buildMapWithControls(
+    BuildContext context,
+    CampusMapController controller,
+    MicController micController,
+    AppLocalizations localizations,
+    TextEditingController searchController,
+  ) {
+
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isLargeScreen = kIsWeb || screenWidth > 800;
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: FlutterMap(
+            mapController: controller.mapController,
+            options: MapOptions(
+              initialCenter: controller.center,
+              initialZoom: 17,
+            ),
+            children: [
+              TileLayer(
+                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                userAgentPackageName: 'com.example.campusmap',
+              ),
+              if (controller.routePoints.isNotEmpty)
+                PolylineLayer(
+                  polylines: [
+                    Polyline(
+                      points: controller.routePoints,
+                      strokeWidth: 4,
+                      color: Colors.blue,
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
-                // Filtros 
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      FilterChip(
-                        label: Text(localizations.cms_filterLibraries, style: TextStyle(color: Colors.black , fontSize: 12, fontWeight: FontWeight.bold)),
-                        selected: false,
-                        onSelected: (_){
-                          searchController.text = 'Bibliotecas';
-                          controller.buscarLugar(searchController.text);
-                        },
-                        backgroundColor: Colors.white,
-                        elevation: 2,
-                        shadowColor: Colors.black26,
-                        side: BorderSide(
-                          color: Colors.grey.withOpacity(0.8),
-                          width: 1,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                          
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      FilterChip(
-                        label: Text(localizations.cms_filterCasinos, style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold)),
-                        selected: false,
-                        
-                        onSelected: (_){
-                          searchController.text = 'Casinos';
-                          controller.buscarLugar(searchController.text);
-                        },
-                        backgroundColor: Colors.white,
-                        elevation: 2,
-                        shadowColor: Colors.black26,
-                        side: BorderSide(
-                          color: Colors.grey.withOpacity(0.8),
-                          width: 1,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      FilterChip(
-                        label: Text(localizations.cms_filterBathrooms, style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold)),
-                        selected: false,
-                        onSelected: (_){
-                          searchController.text = 'Facultad de Humanidades';
-                          controller.buscarLugar(searchController.text);
-                        },
-                        backgroundColor: Colors.white,
-                        elevation: 2,
-                        shadowColor: Colors.black26,
-                        side: BorderSide(
-                          color: Colors.grey.withOpacity(0.8),
-                          width: 1,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      FilterChip(
-                        label: Text(localizations.cms_filterOthers, style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold)),
-                        selected: false,
-                        onSelected: (_){
-                          searchController.text = 'otros';
-                          controller.buscarLugar(searchController.text);
-                        },
-                        backgroundColor: Colors.white,
-                        elevation: 2,
-                        shadowColor: Colors.black26,
-                        side: BorderSide(
-                          color: Colors.grey.withOpacity(0.8),
-                          width: 1,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+              MarkerLayer(markers: [
+                if (controller.userLocationMarker != null)
+                  controller.userLocationMarker!,
+                ...controller.markers,
+              ]),
+            ],
+          ),
+        ),
+        Positioned(
+          top: 40,
+          left: 16,
+          right: 16,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              buildTopControls(
+                context, micController, controller, localizations, searchController,
+              ),
+              const SizedBox(height: 8),
+              buildFilterChips(context, controller, localizations, searchController),
+            ],
+          ),
+        ),
+        Positioned(
+          bottom: isLargeScreen
+          ? 20 
+          : (controller.routePoints.isNotEmpty
+           ? (controller.isCollapse ? 70 : 150) : 20),
+          right: 20,
+          child: FloatingActionButton(
+            backgroundColor: Colors.white,
+            onPressed: controller.moveToUserLocation,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(100), // muy grande para que quede redondo
+              side: const BorderSide(color: Color.fromARGB(255, 95, 154, 148), width: 1),
+            ),
+            child: const Icon(Icons.my_location, color: Colors.teal),
+          ),
+        ),
+      ], 
+    );
+  }
+
+  Widget buildTopControls(
+    BuildContext context,
+    MicController micController,
+    CampusMapController controller,
+    AppLocalizations localizations,
+    TextEditingController searchController,
+  ) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 8)],
+      ),
+      child: Row(
+        children: [
+          const Icon(Icons.location_on, color: Colors.red),
+          const SizedBox(width: 8),
+          Expanded(
+            child: TextField(
+              controller: micController.searchController,
+              onSubmitted: controller.buscarLugar,
+              decoration: InputDecoration(
+                hintText: localizations.cms_searchHint,
+                border: InputBorder.none,
+              ),
             ),
           ),
-          
-          if (controller.routePoints.isNotEmpty) ...[
-            const PlaceInfoCard(),
-            Positioned(
-              bottom: 130,
-              right: 20,
-              child: FloatingActionButton(
-                backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-                onPressed: controller.moveToUserLocation,
-                child: const Icon(Icons.my_location),
-              ),
+          IconButton(
+            onPressed: () {
+              micController.isListening ? micController.stopListening() : micController.startListening();
+            },
+            icon: Icon(
+              micController.isListening ? Icons.mic : Icons.mic_none,
+              color: Colors.teal,
             ),
-          ] else
-            Positioned(
-              bottom: 20,
-              right: 20,
-              child: FloatingActionButton(
-                backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-                onPressed: controller.moveToUserLocation,
-                child: const Icon(Icons.my_location),
-              ),
-            ),
+            tooltip: localizations.cms_voiceSearchTooltip,
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                PageRouteBuilder(
+                  opaque: false,
+                  pageBuilder: (_, __, ___) => const MenuScreen(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.menu, color: Colors.teal),
+            tooltip: localizations.cms_openMenuTooltip,
+          ),
         ],
+      ),
+    );
+  }
+
+  Widget buildFilterChips(
+    BuildContext context,
+    CampusMapController controller,
+    AppLocalizations localizations,
+    TextEditingController searchController,
+  ) {
+    final filters = [
+      {'label': localizations.cms_filterLibraries, 'query': 'Bibliotecas'},
+      {'label': localizations.cms_filterCasinos, 'query': 'Casinos'},
+      {'label': localizations.cms_filterBathrooms, 'query': 'Facultad de Humanidades'},
+      {'label': localizations.cms_filterOthers, 'query': 'otros'},
+    ];
+
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: filters.map((filter) {
+          return Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: FilterChip(
+              label: Text(
+                filter['label']!,
+                style: const TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold),
+              ),
+              selected: false,
+              onSelected: (_) {
+                searchController.text = filter['query']!;
+                controller.buscarLugar(searchController.text);
+              },
+              backgroundColor: Colors.white,
+              elevation: 2,
+              shadowColor: Colors.black26,
+              side: BorderSide(color: Colors.grey.withOpacity(0.8), width: 1),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+            ),
+          );
+        }).toList(),
       ),
     );
   }

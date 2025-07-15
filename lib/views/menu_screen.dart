@@ -82,7 +82,7 @@ class MenuScreen extends StatelessWidget {
                             Navigator.pushNamed(context, '/servicios_screen');
                           },
                         ),
-                        MenuItem(icon: Icons.menu_book, label: localizations.ms_settings, url: 'https://biblioteca.usach.cl/'),
+                        MenuItem(icon: Icons.menu_book, label: localizations.ms_onlineLibrary, url: 'https://biblioteca.usach.cl/'),
                         MenuItem(
                           icon: Icons.settings,
                           label: localizations.ms_settings,

@@ -27,6 +27,8 @@ class CampusMapController extends ChangeNotifier {
   String selectedPlaceFloor = '';
   String selectedPlaceSector = '';
   String selectedPlaceType = '';
+  bool isInfoCardVisible = false;
+  bool isCollapse = false;
 
   CampusMapController() {
     loadNodes();
@@ -114,7 +116,7 @@ class CampusMapController extends ChangeNotifier {
         Marker(
           point: labelPoint,
           width: 100, 
-          height: 40,
+          height: 50,
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
             decoration: BoxDecoration(
@@ -155,10 +157,20 @@ class CampusMapController extends ChangeNotifier {
         ),
       );
       center = lugar.coord;
+      isInfoCardVisible = true; // Mostrar la tarjeta de información
       notifyListeners();
       mapController.move(lugar.coord, 17);
     }
   }
 
   void moveToUserLocation() => _getUserLocation(moveToLocation: true);
+
+  void hideInfoCard(){
+    isCollapse = true;
+    notifyListeners();
+  }
+  void showInfoCard() {
+    isCollapse = false;
+    notifyListeners();
+  }
 }

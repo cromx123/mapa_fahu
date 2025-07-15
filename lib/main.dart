@@ -58,7 +58,10 @@ class CampusMapApp extends StatelessWidget {
         '/config_screen': (context) => const ConfigScreen(),
         '/servicios_screen': (context) => const ServiciosScreen(),
         '/solicitudes_screen': (context) => const SolicitudesView(),
-        '/formulario_cae': (context) {final args = ModalRoute.of(context)!.settings.arguments as String; return FormularioHtmlScreen(base64Logo: args);},
+        '/formulario_cae': (context) {
+          final args = ModalRoute.of(context)!.settings.arguments as String;
+          return FormularioHtmlScreen(base64Logo: args);
+        },
         '/estado_solicitud': (context) => const EstadosSolicitudesScreen(),
         '/foto_screen'     : (context) => FotoScreen(),
       },

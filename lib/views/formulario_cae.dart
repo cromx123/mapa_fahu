@@ -1,7 +1,6 @@
 // File: maps_fahu/lib/views/formulario_cae.dart
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'foto_screen.dart';
 
 class FormularioHtmlScreen extends StatefulWidget {
   const FormularioHtmlScreen({super.key, required this.base64Logo});
@@ -21,7 +20,7 @@ class _FormularioHtmlScreenState extends State<FormularioHtmlScreen> {
     super.initState();
     final logoBase64 = widget.base64Logo;
     // Tu HTML (resumido aquí, pero pon el HTML completo)
-    const String htmlData = r'''
+    final String htmlData = r'''
     <!DOCTYPE html>
 <html lang="es">
 <head>
