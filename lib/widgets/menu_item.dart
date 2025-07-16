@@ -31,15 +31,24 @@ class MenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return GestureDetector(
       onTap: onTap ?? () => _launchURL(context),
       child: ListTile(
-        leading: Icon(icon, color: Colors.black),
+        leading: Icon(
+          icon,
+          color: theme.iconTheme.color, // usa color del tema
+        ),
         title: Text(
           label ?? '',
-          style: const TextStyle(color: Colors.black),
+          style: theme.textTheme.bodyMedium, // usa estilo del tema
         ),
-        trailing: const Icon(Icons.arrow_forward_ios, color: Colors.grey),
+        trailing: Icon(
+          Icons.arrow_forward_ios,
+          color: theme.iconTheme.color?.withOpacity(0.6) ?? Colors.grey,
+          size: 16,
+        ),
       ),
     );
   }
