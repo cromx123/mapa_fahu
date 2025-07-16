@@ -10,6 +10,7 @@ class MenuScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final localizations = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
 
     return Scaffold(
       backgroundColor: Colors.transparent, // fondo transparente
@@ -18,9 +19,7 @@ class MenuScreen extends StatelessWidget {
           // Parte que ocupa 1/5, al tocarla se cierra
           Expanded(
             child: GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-              },
+              onTap: () => Navigator.pop(context),
               child: Container(
                 color: Colors.black.withOpacity(0.3), // semi-transparente
               ),
@@ -28,87 +27,89 @@ class MenuScreen extends StatelessWidget {
           ),
           // Menú que ocupa 4/5
           Container(
-            width: screenWidth * 0.8, // 4/5
-            color: Colors.white,
-            child: SafeArea(
+            width: screenWidth * 0.8,
+            color: theme.scaffoldBackgroundColor, // adapta color de fondo según tema
               child: Column(
                 children: [
                   // Encabezado con curva y título
                   Container(
                     width: double.infinity,
                     height: 100,
-                    decoration: const BoxDecoration(
-                      color: Color(0xFF009688),
-                      borderRadius: BorderRadius.only(
+                    decoration: BoxDecoration(
+                      color: theme.primaryColor, // azul usach
+                      borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(40),
                         bottomRight: Radius.circular(40),
                       ),
                     ),
-                    child: Align(
-                      alignment: Alignment.center,
+                    child: Center(
                       child: Text(
                         localizations.ms_menuTitle,
                         style: TextStyle(
                           fontSize: 28,
-                          color: Colors.orange,
+                          color: const Color(0xFFE77500), // naranjo usach
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
                   ),
-                  // Botón de iniciar sesión
-                  ListTile(
-                    leading: const Icon(Icons.login, color: Colors.grey),
-                    title:  Text(
-                      localizations.ms_login,
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                    onTap: () {
-                      Navigator.pushNamed(context, '/solicitudes_screen');
-                    },
-                  ),
-                  const Divider(),
-                  // Lista de opciones
                   Expanded(
-                    child: ListView(
-                      children: [
-                        MenuItem(icon: Icons.school, label: localizations.ms_portalUsach, url: 'https://www.usach.cl/'),
-                        MenuItem(icon: Icons.laptop, label: localizations.ms_portalFahu, url: 'https://fahu.usach.cl/'),
-                        MenuItem(icon: Icons.person, label: localizations.ms_portalAlumnos, url: 'https://registro.usach.cl/index.php'),
-                        MenuItem(
-                          icon: Icons.laptop,
-                          label: localizations.ms_onlineServices,
-                          onTap: () {
-                            Navigator.pushNamed(context, '/servicios_screen');
-                          },
-                        ),
-                        MenuItem(icon: Icons.menu_book, label: localizations.ms_onlineLibrary, url: 'https://biblioteca.usach.cl/'),
-                        MenuItem(
-                          icon: Icons.settings,
-                          label: localizations.ms_settings,
-                          onTap: () {
-                            Navigator.pushNamed(context, '/config_screen');
-                          },
-                        ),
-                        const MenuItem(icon: Icons.info, label: 'Ayuda e información'),
-                      ],
+                    child: SafeArea(
+                      child: Column(
+                        children:[
+                          ListTile(
+                            leading: Icon(Icons.login, color: theme.iconTheme.color),
+                            title: Text(
+                              localizations.ms_login,
+                              style: theme.textTheme.bodyMedium,
+                            ),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/solicitudes_screen');
+                            },
+                          ),
+                          const Divider(),
+                          // Lista de opciones
+                          Expanded(
+                            child: ListView(
+                              children: [
+                                MenuItem(icon: Icons.school, label: localizations.ms_portalUsach, url: 'https://www.usach.cl/'),
+                                MenuItem(icon: Icons.laptop, label: localizations.ms_portalFahu, url: 'https://fahu.usach.cl/'),
+                                MenuItem(icon: Icons.person, label: localizations.ms_portalAlumnos, url: 'https://registro.usach.cl/index.php'),
+                                MenuItem(
+                                  icon: Icons.laptop,
+                                  label: localizations.ms_onlineServices,
+                                  onTap: () {
+                                    Navigator.pushNamed(context, '/servicios_screen');
+                                  },
+                                ),
+                                MenuItem(icon: Icons.menu_book, label: localizations.ms_onlineLibrary, url: 'https://biblioteca.usach.cl/'),
+                                MenuItem(
+                                  icon: Icons.settings,
+                                  label: localizations.ms_settings,
+                                  onTap: () {
+                                    Navigator.pushNamed(context, '/config_screen');
+                                  },
+                                ),
+                                const MenuItem(icon: Icons.info, label: 'Ayuda e información'),
+                              ],
+                            ),
+                          ),
+                          // Pie de página
+                          Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Text(
+                              'Solutions maps & Fahu\n1.0.3',
+                              textAlign: TextAlign.center,
+                              style: theme.textTheme.bodySmall?.copyWith(fontSize: 12),
+                            ),
+                          ),
+                        ]
+                      ),
                     ),
-                  ),
-                  // Pie de página
-                  const Padding(
-                    padding: EdgeInsets.all(12),
-                    child: Text(
-                      'Solutions maps & Fahu\n1.0.3',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 12, color: Colors.grey),
-                    ),
-                  ),
+                  )
                 ],
               ),
             ),
-          ),
-          // Parte que ocupa 1/5, al tocarla se cierra
-          
         ],
       ),
     );
