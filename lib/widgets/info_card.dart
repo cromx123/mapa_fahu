@@ -51,11 +51,11 @@ class _PlaceInfoCardState extends State<PlaceInfoCard> {
         height: isCollapsed ? collapsedHeight : expandedHeight,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).cardColor,
           borderRadius: isLargeScreen ? BorderRadius.circular(0) : BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30), bottomLeft: Radius.circular(0), bottomRight: Radius.circular(0),),
           boxShadow: [
             BoxShadow(
-              color: Colors.teal.withOpacity(0.2),
+              color: Theme.of(context).shadowColor.withOpacity(0.2),
               blurRadius: 10,
             ),
           ],
@@ -67,7 +67,7 @@ class _PlaceInfoCardState extends State<PlaceInfoCard> {
                 alignment: Alignment.topRight,
                 child: IconButton(
                   icon: Icon(isCollapsed ? Icons.arrow_forward_ios : Icons.close),
-                  color: Colors.teal,
+                  color: Theme.of(context).iconTheme.color,
                   onPressed: () {
                     setState(() {
                       isCollapsed = !isCollapsed;
@@ -83,7 +83,7 @@ class _PlaceInfoCardState extends State<PlaceInfoCard> {
                   width: 64,
                   decoration: 
                     BoxDecoration(
-                      color: Colors.grey.shade400,
+                      color: Theme.of(context).primaryColor,
                       borderRadius: BorderRadius.circular(50),
                     ),
                 ),

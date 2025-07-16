@@ -22,7 +22,9 @@ class _LoginPageState extends State<LoginPage> {
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text("Bienvenido ${_emailController.text}")),
+           
         );
+        Navigator.pushReplacementNamed(context, '/solicitudes_screen');
       });
     }
   }

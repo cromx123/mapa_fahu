@@ -64,7 +64,7 @@ class MenuScreen extends StatelessWidget {
                               style: theme.textTheme.bodyMedium,
                             ),
                             onTap: () {
-                              Navigator.pushNamed(context, '/solicitudes_screen');
+                              Navigator.pushNamed(context, '/login_screen');
                             },
                           ),
                           const Divider(),

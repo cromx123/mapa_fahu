@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'controllers/settings_controller.dart';
 import 'controllers/campus_map_controller.dart';
 import 'controllers/mic_controller.dart';
-import 'views/campus_map_screen.dart';
+import 'views/login_screen.dart';
 import 'views/menu_screen.dart';
 import 'views/config_screen.dart';
 import 'views/servicios_screen.dart';
@@ -63,6 +63,7 @@ class CampusMapApp extends StatelessWidget {
         '/config_screen': (context) => const ConfigScreen(),
         '/servicios_screen': (context) => const ServiciosScreen(),
         '/solicitudes_screen': (context) => const SolicitudesView(),
+        '/login_screen': (context) =>  LoginPage(),
         '/formulario_cae': (context) {final args = ModalRoute.of(context)!.settings.arguments as Map<String, String>?;
           return FormularioHtmlScreen(
             base64LogoHeader: args?['logoHeader'] ?? '',

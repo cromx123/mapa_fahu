@@ -82,7 +82,7 @@ class CampusMapScreen extends StatelessWidget {
                     Polyline(
                       points: controller.routePoints,
                       strokeWidth: 4,
-                      color: Colors.blue,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ],
                 ),
@@ -116,13 +116,13 @@ class CampusMapScreen extends StatelessWidget {
            ? (controller.isCollapse ? 70 : 150) : 20),
           right: 20,
           child: FloatingActionButton(
-            backgroundColor: Colors.white,
+            backgroundColor: Theme.of(context).floatingActionButtonTheme.backgroundColor,
             onPressed: controller.moveToUserLocation,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(100), // muy grande para que quede redondo
-              side: const BorderSide(color: Color.fromARGB(255, 95, 154, 148), width: 1),
+              side: BorderSide(color: Theme.of(context).primaryColor.withOpacity(0.5), width: 1),
             ),
-            child: const Icon(Icons.my_location, color: Colors.teal),
+            child: Icon(Icons.my_location, color: Theme.of(context).floatingActionButtonTheme.foregroundColor),
           ),
         ),
       ], 
@@ -136,16 +136,17 @@ class CampusMapScreen extends StatelessWidget {
     AppLocalizations localizations,
     TextEditingController searchController,
   ) {
+    final theme = Theme.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.scaffoldBackgroundColor,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 8)],
+        boxShadow: [BoxShadow(color: theme.shadowColor.withOpacity(0.2), blurRadius: 8)],
       ),
       child: Row(
         children: [
-          const Icon(Icons.location_on, color: Colors.red),
+          Icon(Icons.location_on, color: theme.primaryColor),
           const SizedBox(width: 8),
           Expanded(
             child: TextField(
@@ -163,7 +164,7 @@ class CampusMapScreen extends StatelessWidget {
             },
             icon: Icon(
               micController.isListening ? Icons.mic : Icons.mic_none,
-              color: Colors.teal,
+              color: theme.primaryColor,
             ),
             tooltip: localizations.cms_voiceSearchTooltip,
           ),
@@ -176,7 +177,7 @@ class CampusMapScreen extends StatelessWidget {
                 ),
               );
             },
-            icon: const Icon(Icons.menu, color: Colors.teal),
+            icon: Icon(Icons.menu, color: theme.primaryColor),
             tooltip: localizations.cms_openMenuTooltip,
           ),
         ],
@@ -206,16 +207,16 @@ class CampusMapScreen extends StatelessWidget {
             child: FilterChip(
               label: Text(
                 filter['label']!,
-                style: const TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold),
+                style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, fontSize: 12, fontWeight: FontWeight.bold),
               ),
               selected: false,
               onSelected: (_) {
                 searchController.text = filter['query']!;
                 controller.buscarLugar(searchController.text);
               },
-              backgroundColor: Colors.white,
+              backgroundColor: Theme.of(context).cardColor,
               elevation: 2,
-              shadowColor: Colors.black26,
+              shadowColor: Theme.of(context).shadowColor,
               side: BorderSide(color: Colors.grey.withOpacity(0.8), width: 1),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
             ),
