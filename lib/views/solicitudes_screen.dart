@@ -1,6 +1,6 @@
 // views/solicitudes_screen.dart
 import 'package:flutter/material.dart';
-
+import 'foto_screen.dart'; // agregar esta línea si no está
 class SolicitudesView extends StatelessWidget {
   const SolicitudesView({super.key});
 
@@ -42,13 +42,17 @@ class SolicitudesView extends StatelessWidget {
                   onPressed: () {},
                   child: const Text('Filtrar'),
                 ),
-                // Spacer no tiene sentido en Wrap, así que lo quitamos
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/formulario_cae');
-                  },
-                  child: const Text('Nueva solicitud'),
-                ),
+               ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context,'/formulario_cae',
+                   arguments: {
+                   'logoHeader': FotoScreen.base64Logo,
+                   'logoFooter': FotoScreen.base64Logo1,
+                   },
+                 );
+               },
+              child: const Text('Nueva solicitud'),
+               ),
               ],
             ),
             const SizedBox(height: 16),

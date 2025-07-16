@@ -1,26 +1,49 @@
-// File: maps_fahu/lib/views/formulario_cae.dart
+// File: views/formulario_cae.dart
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:file_picker/file_picker.dart'; // Asegúrate de agregar en pubspec.yaml
 
 class FormularioHtmlScreen extends StatefulWidget {
-  const FormularioHtmlScreen({super.key, required this.base64Logo});
-  final String base64Logo;
+  final String base64LogoHeader;
+  final String base64LogoFooter;
 
-  
+  const FormularioHtmlScreen({
+    super.key,
+    required this.base64LogoHeader,
+    required this.base64LogoFooter,
+  });
 
   @override
   State<FormularioHtmlScreen> createState() => _FormularioHtmlScreenState();
 }
 
 class _FormularioHtmlScreenState extends State<FormularioHtmlScreen> {
-  late final WebViewController controller;
+  late InAppWebViewController webViewController;
+
+  void seleccionarArchivo() async {
+  final result = await FilePicker.platform.pickFiles(
+    allowMultiple: false,
+    type: FileType.image,
+  );
+
+  if (result != null) {
+    final file = result.files.single;
+    if (file.path != null) {
+      final filePath = file.path!;
+      // …­usa aquí filePath
+    } else {
+      // ocurrió algo raro, no vino el path
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('No se pudo obtener la ruta del archivo')),
+      );
+    }
+   }
+  }
+
 
   @override
-  void initState() {
-    super.initState();
-    final logoBase64 = widget.base64Logo;
-    // Tu HTML (resumido aquí, pero pon el HTML completo)
-    final String htmlData = r'''
+  Widget build(BuildContext context) {
+    final String htmlData = '''
     <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -162,7 +185,7 @@ footer.page{font-size:.78rem;color:#666;margin-top:2.5rem}
   <!-- ==========  ENCABEZADO  ========== -->
   <header>
     <!-- Usa tu ruta real al logo -->
-    <img src="data:image/png;base64,$logoBase64" alt="Logo Facultad de Humanidades USACH">
+    <img src="data:image/png;base64,${widget.base64LogoHeader}" alt="Logo superior" />
   </header>
 
   <h1>CARTA&nbsp;-&nbsp;SOLICITUD</h1>
@@ -227,7 +250,7 @@ footer.page{font-size:.78rem;color:#666;margin-top:2.5rem}
     <div class="firma-zone">
       <label>Firma (PNG)</label>
       <div class="firma-preview" id="firmaPreview">Previsualización firma</div>
-      <input type="file" name="firma" id="firmaInput" accept="image/png" required>
+      <input type="file" name="firma" id="firmaInput" accept="image/png" >
     </div>
 
     <!-- adjuntos -->
@@ -255,7 +278,7 @@ footer.page{font-size:.78rem;color:#666;margin-top:2.5rem}
         <p><a href="https://www.usach.cl">www.usach.cl</a></p>
       </div>
       <!-- Usa tu imagen real del skyline -->
-      <img src="IMG_3620.jpg" class="skyline" alt="Skyline USACH">
+      <img src="data:image/png;base64,${widget.base64LogoFooter}" class="skyline" alt="Logo pie de página" />
     </div>
     <div class="sep"></div>
     <div class="brand">
@@ -307,16 +330,30 @@ document.getElementById('form-cae').addEventListener('submit',async e=>{
 </html>
 ''';
 
-    controller = WebViewController()
-      ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..loadHtmlString(htmlData);
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Formulario C.A.E.')),
-      body: WebViewWidget(controller: controller),
+      appBar: AppBar(title: const Text("Formulario C.A.E.")),
+      body: InAppWebView(
+        initialOptions: InAppWebViewGroupOptions(
+          android: AndroidInAppWebViewOptions(
+            allowFileAccess: true,
+            allowContentAccess: true,
+          ),
+          crossPlatform: InAppWebViewOptions(
+            javaScriptEnabled: true,
+            useOnDownloadStart: true,
+            mediaPlaybackRequiresUserGesture: false,
+          ),
+        ),
+        initialData: InAppWebViewInitialData(
+          data: htmlData,
+          baseUrl: WebUri("https://localhost"),
+          encoding: "utf-8",
+          mimeType: "text/html",
+        ),
+        onWebViewCreated: (controller) {
+          webViewController = controller;
+        },
+      ),
     );
   }
 }
