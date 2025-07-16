@@ -44,6 +44,42 @@ class ConfigScreen extends StatelessWidget {
         },
       );
     }
+    void _showThemeSelection() {
+      showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return Container(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  localizations.cs_theme,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(height: 20),
+                ...[
+                  {'label': 'Claro', 'mode': ThemeMode.light},
+                  {'label': 'Oscuro', 'mode': ThemeMode.dark},
+                  {'label': 'Sistema', 'mode': ThemeMode.system},
+                ].map((item) {
+                  return ListTile(
+                    title: Text(item['label'] as String),
+                    trailing: settings.themeMode == item['mode']
+                        ? const Icon(Icons.check, color: Colors.blue)
+                        : null,
+                    onTap: () {
+                      settings.setThemeMode(item['mode'] as ThemeMode);
+                      Navigator.pop(context);
+                    },
+                  );
+                }).toList(),
+              ],
+            ),
+          );
+        },
+      );
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -53,27 +89,29 @@ class ConfigScreen extends StatelessWidget {
         children: [
           // Idioma con modal bottom sheet
           ListTile(
-            leading: const Icon(Icons.language, color: Colors.black),
+            leading: Icon(Icons.language, color: Theme.of(context).iconTheme.color),
             title: Text(localizations.cs_language),
-            subtitle: Text(settings.locale.languageCode == 'es' 
-                ? 'Español' : 'English'),
+            subtitle: Text(settings.locale.languageCode == 'es' ? 'Español' : 'English'),
             onTap: _showLanguageSelection,
           ),
           
           // Tema
           ListTile(
-            leading: const Icon(Icons.color_lens, color: Colors.black),
+            leading: Icon(Icons.color_lens, color: Theme.of(context).iconTheme.color),
             title: Text(localizations.cs_theme),
-            subtitle: Text(settings.theme == 'light' 
-                ? 'Light' : 'Dark'),
-            onTap: () {
-              settings.setTheme(settings.theme == 'light' ? 'dark' : 'light');
-            },
+            subtitle: Text(
+              settings.themeMode == ThemeMode.light
+                  ? 'Claro'
+                  : settings.themeMode == ThemeMode.dark
+                      ? 'Oscuro'
+                      : 'Sistema',
+            ),
+            onTap: _showThemeSelection,
           ),
           
           // Notificaciones
           ListTile(
-            leading: const Icon(Icons.notifications, color: Colors.black),
+            leading: Icon(Icons.notifications, color: Theme.of(context).iconTheme.color),
             title: Text(localizations.cs_notifications),
             trailing: Switch(
               value: false,
@@ -84,7 +122,7 @@ class ConfigScreen extends StatelessWidget {
           
           // Rutas guardadas
           ListTile(
-            leading: const Icon(Icons.save, color: Colors.black),
+            leading: Icon(Icons.save, color: Theme.of(context).iconTheme.color),
             title: Text(localizations.cs_savedRoutes),
             onTap: () {
               // Navegar a rutas guardadas
@@ -93,10 +131,9 @@ class ConfigScreen extends StatelessWidget {
           
           // Unidades
           ListTile(
-            leading: const Icon(Icons.drive_file_rename_outline_sharp, color: Colors.black),
+            leading: Icon(Icons.drive_file_rename_outline_sharp, color: Theme.of(context).iconTheme.color),
             title: Text(localizations.cs_units),
-            subtitle: Text(settings.unit == 'metros' 
-                ? 'Metros' : 'Millas'),
+            subtitle: Text(settings.unit == 'metros' ? 'Metros' : 'Millas'),
             onTap: () {
               settings.setUnit(settings.unit == 'metros' ? 'millas' : 'metros');
             },
@@ -104,7 +141,7 @@ class ConfigScreen extends StatelessWidget {
           
           // Ayuda y soporte
           ListTile(
-            leading: const Icon(Icons.help, color: Colors.black),
+            leading: Icon(Icons.help, color: Theme.of(context).iconTheme.color),
             title: Text(localizations.cs_helpAndSupport),
             onTap: () {
               // Navegar a ayuda y soporte

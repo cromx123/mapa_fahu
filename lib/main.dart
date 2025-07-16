@@ -13,6 +13,7 @@ import 'views/solicitudes_screen.dart';
 import 'views/formulario_cae.dart';
 import 'views/estado_sol_screen.dart';
 import '/views/foto_screen.dart';
+import 'themes/theme.dart';
 
 void main() {
   runApp(
@@ -52,6 +53,9 @@ class CampusMapApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      themeMode: localeController.themeMode,
       home: const CampusMapScreen(),
       routes: {
         '/menu_screen': (context) => const MenuScreen(),

@@ -1,9 +1,10 @@
+// maps_fahu/lib/controllers/settings_controller.dart
 import 'package:flutter/material.dart';
 
 class SettingsController extends ChangeNotifier {
   Locale _locale = const Locale('es');
   String _unit = 'metros'; // o 'millas'
-  String _theme = 'light'; // o 'dark'
+  ThemeMode _themeMode = ThemeMode.system;
 
   // Getter para locale
   Locale get locale => _locale;
@@ -24,11 +25,11 @@ class SettingsController extends ChangeNotifier {
   }
 
   // Getter para tema
-  String get theme => _theme;
+  ThemeMode get themeMode => _themeMode;
 
   // Setter para tema
-  void setTheme(String theme) {
-    _theme = theme;
+  void setThemeMode(ThemeMode themeMode) {
+    _themeMode = themeMode;
     notifyListeners();
   }
 }

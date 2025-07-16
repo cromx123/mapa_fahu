@@ -52,7 +52,7 @@ class _PlaceInfoCardState extends State<PlaceInfoCard> {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: isLargeScreen ? BorderRadius.circular(0) : BorderRadius.circular(30),
+          borderRadius: isLargeScreen ? BorderRadius.circular(0) : BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30), bottomLeft: Radius.circular(0), bottomRight: Radius.circular(0),),
           boxShadow: [
             BoxShadow(
               color: Colors.teal.withOpacity(0.2),
