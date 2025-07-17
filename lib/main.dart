@@ -11,7 +11,6 @@ import 'views/menu_screen.dart';
 import 'views/config_screen.dart';
 import 'views/servicios_screen.dart';
 import 'views/solicitudes_screen.dart';
-import 'views/convocatorias_screen.dart';
 import 'views/formulario_cae.dart';
 import 'views/estado_sol_screen.dart';
 import '/views/foto_screen.dart';
