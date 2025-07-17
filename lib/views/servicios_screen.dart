@@ -1,5 +1,5 @@
-// views/servicios_screen.dart
 import 'package:flutter/material.dart';
+import '../widgets/servicios_card.dart';
 
 class ServiciosScreen extends StatelessWidget {
   const ServiciosScreen({super.key});
@@ -11,38 +11,42 @@ class ServiciosScreen extends StatelessWidget {
         title: const Text('Servicios'),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              ListTile(
-                leading: Icon(Icons.language, color: Colors.black),
-                title: Text('Idioma'),
-              ),
-              ListTile(
-                leading: Icon(Icons.color_lens, color: Colors.black),
-                title: Text('Tema'),
-              ),
-              ListTile(
-                leading: Icon(Icons.notifications, color: Colors.black),
-                title: Text('Notificaciones'),
-              ),
-              ListTile(
-                leading: Icon(Icons.save, color: Colors.black),
-                title: Text('Trayectos Guardados'),
-              ),
-              ListTile(
-                leading: Icon(Icons.drive_file_rename_outline_sharp, color: Colors.black),
-                title: Text('Unidad de Medida'),
-              ),
-              ListTile(
-                leading: Icon(Icons.help, color: Colors.black),
-                title: Text('Ayuda y Soporte'),
-              ),
-            ],
-          ),
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            ServiceCard(
+              icon: Icons.work_outline,
+              title: 'Convocatorias Ayudantías',
+              description: 'Oportunidades para postular a ayudantías',
+              route: '/convocatorias_screen',
+              color: Colors.blue.shade700,
+            ),
+            
+            ServiceCard(
+              icon: Icons.school,
+              title: 'Programas Académicos',
+              description: 'Información sobre carreras y programas',
+              color: Colors.green.shade700,
+            ),
+            
+            ServiceCard(
+              icon: Icons.event_available,
+              title: 'Calendario Académico',
+              description: 'Fechas importantes del año académico',
+              color: Colors.orange.shade700,
+            ),
+            
+            ServiceCard(
+              icon: Icons.help_center,
+              title: 'Asesorías Estudiantiles',
+              description: 'Orientación y apoyo estudiantil',
+              color: Colors.purple.shade700,
+              onTap: () {
+                // Acción personalizada si no es una ruta nombrada
+                print('Asesorías seleccionadas');
+              },
+            ),
+          ],
         ),
       ),
     );

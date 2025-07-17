@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:humanidades360/l10n/app_localizations.dart';
+import 'package:humanidades360/views/convocatorias_screen.dart';
 import 'package:provider/provider.dart';
 import 'controllers/settings_controller.dart';
 import 'controllers/campus_map_controller.dart';
@@ -10,6 +11,7 @@ import 'views/menu_screen.dart';
 import 'views/config_screen.dart';
 import 'views/servicios_screen.dart';
 import 'views/solicitudes_screen.dart';
+import 'views/convocatorias_screen.dart';
 import 'views/formulario_cae.dart';
 import 'views/estado_sol_screen.dart';
 import '/views/foto_screen.dart';
@@ -63,7 +65,8 @@ class CampusMapApp extends StatelessWidget {
         '/config_screen': (context) => const ConfigScreen(),
         '/servicios_screen': (context) => const ServiciosScreen(),
         '/solicitudes_screen': (context) => const SolicitudesView(),
-        '/login_screen': (context) =>  LoginPage(),
+        '/login_screen': (context) =>  const LoginPage(),
+        '/convocatorias_screen': (context) => const ConvocatoriasScreen(),
         '/formulario_cae': (context) {final args = ModalRoute.of(context)!.settings.arguments as Map<String, String>?;
           return FormularioHtmlScreen(
             base64LogoHeader: args?['logoHeader'] ?? '',
