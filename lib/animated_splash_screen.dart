@@ -51,16 +51,23 @@ class _AnimatedSplashScreenState extends State<AnimatedSplashScreen>
       backgroundColor: const Color(0xFF009B9B),
       body: Center(
         child: FadeTransition(
-          opacity: _fade,
-          child: ScaleTransition(
-            scale: _scale,
-            child: Image.asset(
-              'assets/images/fahu.png',   // tu logo en blanco
-              width: 260,
-              fit: BoxFit.contain,
+              opacity: _fade,
+              child: ScaleTransition(
+                scale: _scale,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // GIF animado principal
+                    Image.asset(
+                      'assets/images/splash_icon.gif',
+                      width: 200,
+                      height: 200,
+                      fit: BoxFit.contain,
+                    ),
+                  ],
+                ),
+              ),
             ),
-          ),
-        ),
       ),
     );
   }

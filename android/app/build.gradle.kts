@@ -21,7 +21,7 @@ android {
 
     defaultConfig {
     applicationId = "com.example.maps_fahu"
-    minSdk = 21 // ✅ SOLO esta línea
+    minSdk = 21 // SOLO esta línea
     targetSdk = flutter.targetSdkVersion
     versionCode = flutter.versionCode
     versionName = flutter.versionName

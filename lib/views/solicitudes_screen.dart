@@ -6,6 +6,13 @@ class SolicitudesView extends StatelessWidget {
 
   final List<Map<String, dynamic>> solicitudes = const [
     {
+      'tipo': 'Ampliación dfuera de plazo',
+      'estado': 'Recepcionado',
+      'fechaCreacion': '22/07/2025 12:24',
+      'ultimaActualizacion': '22/07/2025 12:24',
+      'documento': true,
+    },
+    {
       'tipo': 'Reincorporación por reprobación por segunda o más veces',
       'estado': 'Aceptada',
       'fechaCreacion': '10/07/2025 17:24',
@@ -13,7 +20,7 @@ class SolicitudesView extends StatelessWidget {
       'documento': true,
     },
   ];
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,15 +83,20 @@ class SolicitudesView extends StatelessWidget {
                           DataCell(Text('${entry.key + 1}')),
                           DataCell(Text(entry.value['tipo'])),
                           DataCell(Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 4),
+                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                             decoration: BoxDecoration(
-                              color: Colors.green.shade100,
+                              color: entry.value['estado'] == 'Aceptada' 
+                                  ? Colors.green.shade100 
+                                  : Colors.orange.shade100,
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Text(
                               entry.value['estado'],
-                              style: TextStyle(color: Colors.green[800]),
+                              style: TextStyle(
+                                color: entry.value['estado'] == 'Aceptada' 
+                                    ? Colors.green[800] 
+                                    : Colors.orange[800],
+                              ),
                             ),
                           )),
                           DataCell(Column(

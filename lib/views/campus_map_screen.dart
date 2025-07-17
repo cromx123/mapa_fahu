@@ -113,7 +113,7 @@ class CampusMapScreen extends StatelessWidget {
           bottom: isLargeScreen
           ? 20 
           : (controller.routePoints.isNotEmpty
-           ? (controller.isCollapse ? 70 : 150) : 20),
+           ? (controller.isCollapse ? 90 : 150) : 20),
           right: 20,
           child: FloatingActionButton(
             backgroundColor: Theme.of(context).floatingActionButtonTheme.backgroundColor,
@@ -151,6 +151,7 @@ class CampusMapScreen extends StatelessWidget {
           Expanded(
             child: TextField(
               controller: micController.searchController,
+              style: theme.textTheme.bodyMedium,
               onSubmitted: controller.buscarLugar,
               decoration: InputDecoration(
                 hintText: localizations.cms_searchHint,

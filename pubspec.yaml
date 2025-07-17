@@ -49,6 +49,7 @@ flutter:
     - assets/content/formulario_cae.html
     - assets/images/x.png
     - assets/images/fahu.png
+    - assets/images/splash_icon.gif
 
 flutter_icons:
   android: true
