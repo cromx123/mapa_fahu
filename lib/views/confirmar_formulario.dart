@@ -1,47 +1,46 @@
-// File: views/formulario_cae.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:file_picker/file_picker.dart'; // Asegúrate de agregar en pubspec.yaml
-import 'confirmar_formulario.dart'; 
+import 'package:printing/printing.dart';
+import 'package:pdf/pdf.dart';
 import '/models/form_data.dart'; 
 
-class FormularioHtmlScreen extends StatefulWidget {
+
+
+class ConfirmarFormScreen extends StatefulWidget {
   final String base64LogoHeader;
   final String base64LogoFooter;
+  final FormData formData;
 
-  const FormularioHtmlScreen({
+  const ConfirmarFormScreen(this.formData,{
     super.key,
     required this.base64LogoHeader,
     required this.base64LogoFooter,
   });
 
   @override
-  State<FormularioHtmlScreen> createState() => _FormularioHtmlScreenState();
+  State<ConfirmarFormScreen> createState() => _ConfirmarFormScreenState();
 }
 
-class _FormularioHtmlScreenState extends State<FormularioHtmlScreen> {
+class _ConfirmarFormScreenState extends State<ConfirmarFormScreen> {
   late InAppWebViewController webViewController;
 
-  void seleccionarArchivo() async {
-  final result = await FilePicker.platform.pickFiles(
-    allowMultiple: false,
-    type: FileType.image,
-  );
-
-  if (result != null) {
-    final file = result.files.single;
-    if (file.path != null) {
-      final filePath = file.path!;
-      // …­usa aquí filePath
-    } else {
-      // ocurrió algo raro, no vino el path
+  // Función para generar PDF desde HTML usando el paquete printing
+  Future<void> generarPdfDesdeHtml(htmlData) async {
+    try {
+      await Printing.layoutPdf(
+        onLayout: (PdfPageFormat format) async {
+          return await Printing.convertHtml(
+            format: format,
+            html: htmlData, // aquí está la clave
+          );
+        },
+      );
+    } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('No se pudo obtener la ruta del archivo')),
+        SnackBar(content: Text('Error al generar PDF: $e')),
       );
     }
-   }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -196,29 +195,25 @@ footer.page{font-size:.78rem;color:#666;margin-top:2.5rem}
   <div class="contenido">
   <!-- ==========  FORMULARIO  ========== -->
   <form id="form-cae">
-    <label>Fecha: </label>
-    <input type="date" name="fecha" style="width: 91%;" required>
+    <label>Fecha: </label><p style="display:inline-block;margin:0 0 .55rem;font-weight:700">${widget.formData.fecha}</p>
    <br><br>
-    <label>Nombre completo: </label>
-    <input type="text" name="nombre" style="width: 78%;" required>
+    <label>Nombre completo: </label><p style="display:inline-block;margin:0 0 .55rem;font-weight:700">${widget.formData.nombre}</p>
     <br><br>
     <div class="inline-group">
   <label class="inline-label">C.I.: </label>
-  <input type="text" name="ci" style="width: 30%;" required>
+  <p style="display:inline-block;margin:0 0 .55rem;font-weight:700">${widget.formData.ci}</p>
 
   <label class="inline-label">FONO: </label>
-  <input type="text" name="fono" style="width: 41%;" required>
+  <p style="display:inline-block;margin:0 0 .55rem;font-weight:700">+56 ${widget.formData.fono}</p>
 </div>
 
 
-    <label>Carrera: </label>
-    <input type="text" name="carrera" style="width: 89%;" required>
+    <label>Carrera: </label><p style="display:inline-block;margin:0 0 .55rem;font-weight:700">${widget.formData.carrera}</p>
     <br><br>
-    <label>Correo: </label>
-    <input type="email" name="correo"  style="width: 90%;" required>
+    <label>Correo: </label><p style="display:inline-block;margin:0 0 .55rem;font-weight:700">${widget.formData.correo}</p>
     <br><br>
 
-    <p style="margin:.9rem 0 .35rem"><strong>A:&nbsp;&nbsp;     VICE-DECANO DE DOCENCIA&nbsp;FAHU</strong><br>p;Palma</p>
+    <p style="margin:.9rem 0 .35rem"><strong>A:&nbsp;&nbsp;     VICE-DECANO DE DOCENCIA&nbsp;FAHU</strong><br>Sr. Saúl Contreras Palma</p>
 
     <p style="margin:.35rem 0 .35rem">Solicito su autorización para:</p>
 
@@ -252,7 +247,6 @@ footer.page{font-size:.78rem;color:#666;margin-top:2.5rem}
     <div class="firma-zone">
       <label>Firma (PNG)</label>
       <div class="firma-preview" id="firmaPreview">Previsualización firma</div>
-      <input type="file" name="firma" id="firmaInput" accept="image/png" >
     </div>
 
     <!-- adjuntos -->
@@ -266,8 +260,6 @@ footer.page{font-size:.78rem;color:#666;margin-top:2.5rem}
         <small>(.doc, .docx, .pdf, .png)</small>
       </div>
     </div>
-
-    <button type="submit">Enviar</button>
   </form>
   </div>
 
@@ -291,115 +283,31 @@ footer.page{font-size:.78rem;color:#666;margin-top:2.5rem}
 
 </div><!-- /page -->
 
-<!-- ==========  JS  ========== -->
-<script>
-/* vista previa firma */
-const firmaInput   = document.getElementById('firmaInput');
-const firmaPreview = document.getElementById('firmaPreview');
-firmaInput.addEventListener('change',()=>{
-  const file = firmaInput.files[0];
-  if(!file){firmaPreview.textContent='Previsualización firma';return;}
-  const reader = new FileReader();
-  reader.onload = e => firmaPreview.innerHTML = `<img src="" alt="firma">`;
-  reader.readAsDataURL(file);
-});
 
-/* mostrar/ocultar adjuntos */
-const adjInputs=document.getElementById('adjInputs');
-document.querySelectorAll('input[name="antecedentes_si"]').forEach(radio=>{
-  radio.addEventListener('change',()=>{
-    adjInputs.style.display = (radio.value==='si' && radio.checked)?'block':'none';
-  });
-});
-
-/* envío */
-document.getElementById('form-cae').addEventListener('submit',async e=>{
-  e.preventDefault();
-  const form=e.target, fd=new FormData(form);
-  const seleccion=[...form.querySelectorAll('input[name="opciones"]:checked')].map(c=>c.value);
-  fd.delete('opciones');
-  seleccion.forEach(v=>fd.append('opciones[]',v));
-  // COMENTAR BLOQUE REAL DE ENVÍO
-  /*
-  try {
-    const res = await fetch('/api/solicitud', { method: 'POST', body: fd });
-    if (!res.ok) throw new Error('Error al enviar');
-    alert('Solicitud enviada ✔️');
-    window.flutter_inappwebview.callHandler('formEnviado');
-    form.reset();
-    firmaPreview.textContent = 'Previsualización firma';
-    adjInputs.style.display = 'none';
-  } catch (err) {
-    alert('No se pudo enviar: ' + err.message);
-  }
-  */
-
-  // SIMULACIÓN TEMPORAL DE ENVÍO EXITOSO
-  alert('Solicitud enviada ✔️ (simulado)');
-  const datos = {
-    fecha: form.fecha.value,
-    nombre: form.nombre.value,
-    ci: form.ci.value,
-    fono: form.fono.value,
-    carrera: form.carrera.value,
-    correo: form.correo.value,
-    opciones: seleccion,
-    fundamentacion: form.fundamentacion.value,
-  };
-  window.flutter_inappwebview.callHandler('formEnviado',datos);
-  form.reset();
-  firmaPreview.textContent = 'Previsualización firma';
-  adjInputs.style.display = 'none';
-});
-</script>
 
 </body>
 </html>
 ''';
-
     return Scaffold(
-      appBar: AppBar(title: const Text("Formulario C.A.E.")),
+      appBar: AppBar(
+        title: const Text("Vista previa PDF"),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.picture_as_pdf),
+            onPressed: () => generarPdfDesdeHtml(htmlData),
+            tooltip: 'Generar PDF',
+          ),
+        ],
+      ),
       body: InAppWebView(
-        initialOptions: InAppWebViewGroupOptions(
-          android: AndroidInAppWebViewOptions(
-            allowFileAccess: true,
-            allowContentAccess: true,
-          ),
-          crossPlatform: InAppWebViewOptions(
-            javaScriptEnabled: true,
-            useOnDownloadStart: true,
-            mediaPlaybackRequiresUserGesture: false,
-          ),
-        ),
         initialData: InAppWebViewInitialData(
           data: htmlData,
-          baseUrl: WebUri("https://localhost"),
+          baseUrl: WebUri("https://localhost"), // para rutas relativas
           encoding: "utf-8",
           mimeType: "text/html",
         ),
         onWebViewCreated: (controller) {
           webViewController = controller;
-
-          controller.addJavaScriptHandler(
-            handlerName: 'formEnviado',
-            callback: (args) {
-              if (args.isNotEmpty && args[0] is Map) {
-      
-                final formData = FormData.fromJson(Map<String, dynamic>.from(args[0])); 
-              // Navegar a la vista de confirmación
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ConfirmarFormScreen(
-                      formData,
-                      base64LogoHeader: widget.base64LogoHeader,
-                      base64LogoFooter: widget.base64LogoFooter,
-                    ),
-                  ),
-                );
-              }
-            },
-          );
         },
       ),
     );
