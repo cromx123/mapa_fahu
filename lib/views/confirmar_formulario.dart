@@ -45,7 +45,7 @@ class _ConfirmarFormScreenState extends State<ConfirmarFormScreen> {
   @override
   Widget build(BuildContext context) {
     final String htmlData = '''
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8" />
@@ -65,7 +65,7 @@ class _ConfirmarFormScreenState extends State<ConfirmarFormScreen> {
 html,body{margin:0;background:#fff;color:var(--gris)}
 
 /* ----------  CONTENEDOR 80 % ---------- */
-.page{width:100%;margin:0 auto}
+.page{width:100%;max-width: 816px;;margin:0 auto}
 
 /* ----------  ENCABEZADO ---------- */
 header{
@@ -81,6 +81,7 @@ header{
   margin-top: 1rem;
 }
 .contenido {
+  width: 80%;
   margin: 0 auto;
 }
 .footer-text {
@@ -109,10 +110,15 @@ input[type="email"] {
   outline: none;
 }
 
+.underlined-text {
+  display: inline-block;
+  border-bottom: 1px solid #000;
+  min-width: 60%;  /* o el ancho que necesites */
+  padding-bottom: 2px; /* espacio entre texto y línea */
+}
 
 label.inline-label {
   display: inline-block;
-  font-weight: 700;
   margin-right: 0.6rem;
 }
 .inline-group {
@@ -186,7 +192,7 @@ footer.page{font-size:.78rem;color:#666;margin-top:2.5rem}
   <!-- ==========  ENCABEZADO  ========== -->
   <header>
     <!-- Usa tu ruta real al logo -->
-    <img src="data:image/png;base64,${widget.base64LogoHeader}" alt="Logo superior" />
+    <img src="data:image/png;base64,${widget.base64LogoHeader}" alt="Logo Facultad de Humanidades USACH" />
   </header>
 
   <h1>CARTA&nbsp;-&nbsp;SOLICITUD</h1>
@@ -195,25 +201,24 @@ footer.page{font-size:.78rem;color:#666;margin-top:2.5rem}
   <div class="contenido">
   <!-- ==========  FORMULARIO  ========== -->
   <form id="form-cae">
-    <label>Fecha: </label><p style="display:inline-block;margin:0 0 .55rem;font-weight:700">${widget.formData.fecha}</p>
+    <label>Fecha: </label><span class="underlined-text" style="width: 90%;">${widget.formData.fecha}</span>
    <br><br>
-    <label>Nombre completo: </label><p style="display:inline-block;margin:0 0 .55rem;font-weight:700">${widget.formData.nombre}</p>
+    <label>Nombre completo: </label><span class="underlined-text" style="width: 77%;">${widget.formData.nombre}</span>
     <br><br>
     <div class="inline-group">
-  <label class="inline-label">C.I.: </label>
-  <p style="display:inline-block;margin:0 0 .55rem;font-weight:700">${widget.formData.ci}</p>
+      <label class="inline-label">C.I.: </label>
+      <span class="underlined-text" style="width: 30%;">${widget.formData.ci}</span>
 
-  <label class="inline-label">FONO: </label>
-  <p style="display:inline-block;margin:0 0 .55rem;font-weight:700">+56 ${widget.formData.fono}</p>
-</div>
+      <label class="inline-label">FONO: </label>
+      <span class="underlined-text" style="width: 30%;">+56 ${widget.formData.fono}</span>
+    </div>
 
-
-    <label>Carrera: </label><p style="display:inline-block;margin:0 0 .55rem;font-weight:700">${widget.formData.carrera}</p>
+    <label>Carrera: </label><span class="underlined-text" style="width: 89%;">${widget.formData.carrera}</span>
     <br><br>
-    <label>Correo: </label><p style="display:inline-block;margin:0 0 .55rem;font-weight:700">${widget.formData.correo}</p>
+    <label>Correo: </label><span class="underlined-text" style="width: 90%;">${widget.formData.correo}</span>
     <br><br>
 
-    <p style="margin:.9rem 0 .35rem"><strong>A:&nbsp;&nbsp;     VICE-DECANO DE DOCENCIA&nbsp;FAHU</strong><br>Sr. Saúl Contreras Palma</p>
+    <p style="margin:.9rem 0 .35rem"><strong>A:&nbsp;&nbsp;     VICE-DECANO DE DOCENCIA&nbsp;FAHU</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sr. Saúl Contreras Palma</p>
 
     <p style="margin:.35rem 0 .35rem">Solicito su autorización para:</p>
 
