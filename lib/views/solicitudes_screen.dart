@@ -153,7 +153,7 @@ class SolicitudesView extends StatelessWidget {
                               const SizedBox(height: 12),
                               Row(
                                 children: [
-                                  Text('Tipo : ',
+                                  Text('Tipo    : ',
                                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.bold)),
                                   Expanded(
                                     child: Text(solicitud['tipo'],
@@ -181,11 +181,11 @@ class SolicitudesView extends StatelessWidget {
                               Row(
                                 children: [
                                   Text(
-                                    'Fecha : ',
+                                    'Fecha   : ',
                                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.bold)
                                   ),
                                   Text(
-                                    'Creación: ${solicitud['fechaCreacion']}\n         Actualización: ${solicitud['ultimaActualizacion']}',
+                                    'Creación: ${solicitud['fechaCreacion']}\nActualización: ${solicitud['ultimaActualizacion']}',
                                     style: Theme.of(context).textTheme.bodySmall,
                                   ),
                                 ],
