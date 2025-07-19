@@ -5,8 +5,8 @@ class CampusNode {
   final String id;
   final String tipo;
   final String nombre;
-  final int sector;
-  final int nivel;
+  final String sector;
+  final String nivel;
   final LatLng coord;
   final List<Neighbor> vecinos;
 

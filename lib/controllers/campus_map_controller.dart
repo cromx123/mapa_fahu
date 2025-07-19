@@ -35,7 +35,7 @@ class CampusMapController extends ChangeNotifier {
     _getUserLocation();
   }
   Future<void> loadNodes() async {
-    final String jsonString = await rootBundle.loadString('assets/data/nodes.json');
+    final String jsonString = await rootBundle.loadString('assets/data/nodos_conectados.json');
     final List<dynamic> jsonData = json.decode(jsonString);
     campusNodes = jsonData.map((item) => CampusNode.fromJson(item)).toList();
     notifyListeners();
@@ -73,7 +73,7 @@ class CampusMapController extends ChangeNotifier {
     final lugar = campusNodes.firstWhere(
       (n) => n.nombre.toLowerCase().contains(texto.toLowerCase()),
       orElse: () => CampusNode(
-          id: '', tipo: '', nombre: '', sector: 0, nivel: 1, coord: LatLng(0,0), vecinos: []),
+          id: '', tipo: '', nombre: '', sector: "", nivel: "", coord: LatLng(0,0), vecinos: []),
     );
     
     selectedPlaceName = lugar.nombre;

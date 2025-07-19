@@ -51,6 +51,7 @@ flutter:
   assets:
     - assets/images/mapa_screen.png
     - assets/data/nodes.json
+    - assets/data/nodos_conectados.json
     - assets/content/formulario_cae.html
     - assets/images/x.png
     - assets/images/fahu.png
