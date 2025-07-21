@@ -10,9 +10,11 @@ Aplicación de mapas desarrollada en Flutter para facilitar la orientación y na
 - Interfaz adaptativa a multiples plataformas.
 
 ## Capturas de pantalla
-| Vista principal | Menu | servicios | config
-|-----------------|-----------------|-------------------|
+
+| Vista principal | Menu | servicios | config |
+|-----------------|-----------------|-------------------|-------------------|
 | ![mapa screen](screenshots/main_maps.jpeg) | ![menu screen](screenshots/menu_screen.jpeg) | ![servicios screen](screenshots/servicios_screen.jpeg) | ![config screen](screenshots/config_screen.jpeg) |
+
 ## Requisitos
 - Flutter SDK 
 
