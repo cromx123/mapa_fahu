@@ -1,3 +1,4 @@
+// views/campus_map_screen.dart
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -203,7 +204,7 @@ class CampusMapScreen extends StatelessWidget {
     TextEditingController searchController,
   ) {
     final filters = [
-      {'label': localizations.cms_filterLibraries, 'query': 'Bibliotecas'},
+      {'label': localizations.cms_filterLibraries, 'query': 'Biblioteca Química y Biología'},
       {'label': localizations.cms_filterCasinos, 'query': 'Casinos'},
       {'label': localizations.cms_filterBathrooms, 'query': 'Facultad de Humanidades'},
       {'label': localizations.cms_filterOthers, 'query': 'otros'},
