@@ -7,6 +7,8 @@ import '../controllers/mic_controller.dart';
 import 'menu_screen.dart';
 import '../widgets/info_card.dart';
 import 'package:humanidades360/l10n/app_localizations.dart';
+import 'package:latlong2/latlong.dart';
+
 
 class CampusMapScreen extends StatelessWidget {
   const CampusMapScreen({super.key});
@@ -67,9 +69,17 @@ class CampusMapScreen extends StatelessWidget {
         Positioned.fill(
           child: FlutterMap(
             mapController: controller.mapController,
-            options: MapOptions(
-              initialCenter: controller.center,
-              initialZoom: 17,
+           options: MapOptions(
+             initialCenter: LatLng(-33.447343, -70.684989), // Punto central del campus
+             initialZoom: 17,
+             minZoom: 15,
+             maxZoom: 22,
+            cameraConstraint: CameraConstraint.contain(
+            bounds: LatLngBounds(
+             LatLng(-33.453011, -70.688118), // esquina suroeste
+             LatLng(-33.444813, -70.679414), // esquina noreste
+              ),
+             ),
             ),
             children: [
               TileLayer(
