@@ -28,7 +28,7 @@ final ThemeData lightTheme = ThemeData.light().copyWith(
     thumbColor: MaterialStatePropertyAll(Color(0xFFE77500)), // naranjo
     trackColor: MaterialStatePropertyAll(Color(0xFFE77500).withOpacity(0.4)),
   ),
-  cardColor: const Color.fromARGB(255, 236, 230, 230),
+  cardColor: const Color.fromARGB(255, 255, 255, 255),
 );
 
 final ThemeData darkTheme = ThemeData.dark().copyWith(

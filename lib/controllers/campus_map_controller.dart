@@ -35,7 +35,7 @@ class CampusMapController extends ChangeNotifier {
     _getUserLocation();
   }
   Future<void> loadNodes() async {
-    final String jsonString = await rootBundle.loadString('assets/data/nodos_conectados.json');
+    final String jsonString = await rootBundle.loadString('assets/data/nodes.json');
     final List<dynamic> jsonData = json.decode(jsonString);
     campusNodes = jsonData.map((item) => CampusNode.fromJson(item)).toList();
     notifyListeners();
