@@ -1,4 +1,7 @@
 // controllers/campus_map_controller.dart
+import 'dart:math';
+import 'package:logger/logger.dart';
+
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:geolocator/geolocator.dart';
@@ -12,6 +15,7 @@ import 'package:flutter/services.dart' show rootBundle;
 class CampusMapController extends ChangeNotifier {
   final MapController mapController = MapController();
   final TextEditingController searchController = TextEditingController();
+  final logger = Logger();
 
   LatLng center = LatLng(-33.4467, -70.6821);
   List<Marker> markers = [];
@@ -171,6 +175,29 @@ class CampusMapController extends ChangeNotifier {
   }
   void showInfoCard() {
     isCollapse = false;
+    notifyListeners();
+  }
+  void mostrar_busqueda(String texto) {
+    
+    final lugares = campusNodes.where(
+      (n) => n.tipo.toLowerCase().contains(texto.toLowerCase())
+    ).toList();
+
+    markers = lugares.map((lugar) => Marker(
+      point: lugar.coord,
+      width: 40,
+      height: 40,
+      child: const Icon(Icons.location_pin, size: 40, color: Colors.green),
+    )).toList();
+
+    logger.i('Iniciando búsqueda para: $texto');
+  
+    if (lugares.isEmpty) {
+      logger.w('No se encontraron resultados para: $texto');
+    } else {
+      logger.d('${lugares.length} resultados encontrados');
+    }
+
     notifyListeners();
   }
 }

@@ -203,34 +203,54 @@ class CampusMapScreen extends StatelessWidget {
     AppLocalizations localizations,
     TextEditingController searchController,
   ) {
+    // Estado para rastrear el filtro seleccionado
+    String? selectedFilter;
+
     final filters = [
-      {'label': localizations.cms_filterLibraries, 'query': 'Biblioteca Química y Biología'},
-      {'label': localizations.cms_filterCasinos, 'query': 'Casinos'},
-      {'label': localizations.cms_filterBathrooms, 'query': 'Facultad de Humanidades'},
+      {'label': localizations.cms_filterLibraries, 'query': 'biblioteca'},
+      {'label': localizations.cms_filterCasinos, 'query': 'casino'},
+      {'label': localizations.cms_filterBathrooms, 'query': 'baño'},
       {'label': localizations.cms_filterOthers, 'query': 'otros'},
+      // Agrega más filtros según necesidad
     ];
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         children: filters.map((filter) {
+          final isSelected = selectedFilter == filter['query'];
           return Padding(
             padding: const EdgeInsets.only(right: 8),
             child: FilterChip(
               label: Text(
                 filter['label']!,
-                style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, fontSize: 12, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  color: isSelected 
+                    ? Theme.of(context).colorScheme.onPrimary 
+                    : Theme.of(context).textTheme.bodyMedium?.color,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              selected: false,
+              selected: isSelected,
               onSelected: (_) {
-                searchController.text = filter['query']!;
-                controller.buscarLugar(searchController.text);
+                selectedFilter = isSelected ? null : filter['query'];
+                searchController.text = selectedFilter ?? '';
+                controller.mostrar_busqueda(searchController.text);
               },
-              backgroundColor: Theme.of(context).cardColor,
+              backgroundColor: isSelected
+                ? Theme.of(context).primaryColor
+                : Theme.of(context).cardColor,
               elevation: 2,
               shadowColor: Theme.of(context).shadowColor,
-              side: BorderSide(color: Colors.grey.withOpacity(0.8), width: 1),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+              side: BorderSide(
+                color: Colors.grey.withOpacity(0.8),
+                width: 1,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(50),
+              ),
+              checkmarkColor: Theme.of(context).colorScheme.onPrimary,
             ),
           );
         }).toList(),

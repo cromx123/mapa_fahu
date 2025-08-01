@@ -34,6 +34,8 @@ dependencies:
   printing: ^5.14.2
   flutter_pdfview: ^1.4.1
   mailer: ^6.4.1
+  logger: ^2.6.1
+
   flutter_localizations:
     sdk: flutter
   intl: ^0.20.2
