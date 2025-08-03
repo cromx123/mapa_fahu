@@ -27,6 +27,10 @@ class ServiciosScreen extends StatelessWidget {
               title: 'Programas Académicos',
               description: 'Información sobre carreras y programas',
               color: Colors.green.shade700,
+              onTap: () {
+                // Acción personalizada si no es una ruta nombrada
+                print('Programas Académicos seleccionado');
+              },            
             ),
             
             ServiceCard(
@@ -34,6 +38,10 @@ class ServiciosScreen extends StatelessWidget {
               title: 'Calendario Académico',
               description: 'Fechas importantes del año académico',
               color: Colors.orange.shade700,
+              onTap: () {
+                // Acción personalizada si no es una ruta nombrada
+                print('Calendario seleccionado');
+              },
             ),
             
             ServiceCard(
@@ -44,6 +52,16 @@ class ServiciosScreen extends StatelessWidget {
               onTap: () {
                 // Acción personalizada si no es una ruta nombrada
                 print('Asesorías seleccionadas');
+              },
+            ),
+            ServiceCard(
+              icon: Icons.contact_support,
+              title: 'Eventos y Actividades',
+              description: 'Listado de eventos y actividades del mes actual',
+              color: Colors.red.shade700,
+              onTap: () {
+                // Acción personalizada si no es una ruta nombrada
+                print('Eventos seleccionado');
               },
             ),
           ],
