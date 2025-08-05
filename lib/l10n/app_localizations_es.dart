@@ -51,6 +51,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get cs_units => 'Unidad de Medida';
 
   @override
+  String get cs_unitsMeters => 'Metros';
+
+  @override
+  String get cs_unitsMiles => 'Millas';
+
+  @override
   String get cs_helpAndSupport => 'Ayuda y Soporte';
 
   @override

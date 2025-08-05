@@ -17,6 +17,11 @@
     "@cs_eventsSubtitle": {"description": "Toggle to display events on the map"},
     "cs_savedRoutes": "Saved Routes",
     "cs_units": "Units",
+    "cs_unitsMeters": "Meters",
+    "cs_unitsMiles": "Miles",
+    "@cs_units": {"description": "Unit selection title"},
+    "@cs_unitsMeters": {"description": "Meters option"},
+    "@cs_unitsMiles": {"description": "Miles option"},
     "cs_helpAndSupport": "Help & Support",
 
     "ms_menuTitle": "Menu",

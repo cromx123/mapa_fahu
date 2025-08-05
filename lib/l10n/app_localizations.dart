@@ -173,11 +173,23 @@ abstract class AppLocalizations {
   /// **'Saved Routes'**
   String get cs_savedRoutes;
 
-  /// No description provided for @cs_units.
+  /// Unit selection title
   ///
   /// In en, this message translates to:
   /// **'Units'**
   String get cs_units;
+
+  /// Meters option
+  ///
+  /// In en, this message translates to:
+  /// **'Meters'**
+  String get cs_unitsMeters;
+
+  /// Miles option
+  ///
+  /// In en, this message translates to:
+  /// **'Miles'**
+  String get cs_unitsMiles;
 
   /// No description provided for @cs_helpAndSupport.
   ///

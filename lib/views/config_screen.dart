@@ -145,11 +145,16 @@ class ConfigScreen extends StatelessWidget {
           
           // Unidades
           ListTile(
-            leading: Icon(Icons.drive_file_rename_outline_sharp, color: Theme.of(context).iconTheme.color),
-            title: Text(localizations.cs_units),
-            subtitle: Text(settings.unit == 'metros' ? 'Metros' : 'Millas'),
+            leading: Icon(Icons.drive_file_rename_outline_sharp, 
+                    color: Theme.of(context).iconTheme.color),
+            title: Text(localizations.cs_units), 
+            subtitle: Text(
+              settings.unit == 'meters' 
+                ? localizations.cs_unitsMeters
+                : localizations.cs_unitsMiles,
+            ),
             onTap: () {
-              settings.setUnit(settings.unit == 'metros' ? 'millas' : 'metros');
+              settings.setUnit(settings.unit == 'meters' ? 'miles' : 'meters');
             },
           ),
           
