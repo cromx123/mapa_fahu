@@ -78,5 +78,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get cms_filterBathrooms => 'Baños';
 
   @override
+  String get cms_filterRooms => 'Salas';
+
+  @override
   String get cms_filterOthers => 'otros...';
 }

@@ -210,6 +210,7 @@ class CampusMapScreen extends StatelessWidget {
       {'label': localizations.cms_filterLibraries, 'query': 'biblioteca'},
       {'label': localizations.cms_filterCasinos, 'query': 'casino'},
       {'label': localizations.cms_filterBathrooms, 'query': 'baño'},
+      {'label': localizations.cms_filterRooms, 'query': 'sala'},
       {'label': localizations.cms_filterOthers, 'query': 'otros'},
       // Agrega más filtros según necesidad
     ];

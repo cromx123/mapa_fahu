@@ -27,5 +27,6 @@
     "cms_filterLibraries": "Libraries",
     "cms_filterCasinos": "Cafeterias",
     "cms_filterBathrooms": "Bathrooms",
+    "cms_filterRooms": "Rooms",
     "cms_filterOthers": "others..."
 }

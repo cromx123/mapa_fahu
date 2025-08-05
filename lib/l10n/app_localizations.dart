@@ -233,6 +233,12 @@ abstract class AppLocalizations {
   /// **'Bathrooms'**
   String get cms_filterBathrooms;
 
+  /// No description provided for @cms_filterRooms.
+  ///
+  /// In en, this message translates to:
+  /// **'Rooms'**
+  String get cms_filterRooms;
+
   /// No description provided for @cms_filterOthers.
   ///
   /// In en, this message translates to:

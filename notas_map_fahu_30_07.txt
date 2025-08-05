@@ -1,0 +1,28 @@
+Cosas por hacer para la aplicación:
+
+Gps activo: La ruta debe recalcularse acorde de la posición actual de la persona.
+
+Añadir botón: iniciar ruta.
+
+Busqueda mejorada: Al buscar un lugar no realice la busqueda de nodos camino.
+
+Añadir carta: Eventos. // funciones ver todos los eventos a treves de una view nueva.
+
+Modificar opciones: Activar/Desactivar la visiualización de eventos en la U. 
+	// eventos que ocurriran en esta semana. Estos apareceran como points de un 
+	   color distinto.
+
+La busqueda rapida: (filtros bajo el barra de busqueda) al presionar uno de los pin
+	debe mostrar información relacionada al lugar buscado, la info card debe mostrar
+	si desea iniciar viaje al lugar seleciónado, además de toda la inforación necesa
+	ria del lugar.
+
+Añadir sección de feedback en las configuraciones.
+
+Añadir botones de zoom -/+ para versión web.
+
+--------------------------------------------------------
+
+Añadir nodos de tipo casino.
+Añadir nodos de tipo kiosko.
+ 
