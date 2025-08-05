@@ -18,10 +18,31 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cs_language => 'Language';
 
   @override
+  String get cs_languageSpanish => 'Spanish';
+
+  @override
+  String get cs_languageEnglish => 'English';
+
+  @override
   String get cs_theme => 'Theme';
 
   @override
+  String get cs_themeLight => 'Light';
+
+  @override
+  String get cs_themeDark => 'Dark';
+
+  @override
+  String get cs_themeSystem => 'System (auto)';
+
+  @override
   String get cs_notifications => 'Notifications';
+
+  @override
+  String get cs_events => 'Events';
+
+  @override
+  String get cs_eventsSubtitle => 'View events on the map';
 
   @override
   String get cs_savedRoutes => 'Saved Routes';

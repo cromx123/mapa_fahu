@@ -107,11 +107,23 @@ abstract class AppLocalizations {
   /// **'Settings'**
   String get cs_settingsTitle;
 
-  /// No description provided for @cs_language.
+  /// Language selection tile title
   ///
   /// In en, this message translates to:
   /// **'Language'**
   String get cs_language;
+
+  /// No description provided for @cs_languageSpanish.
+  ///
+  /// In en, this message translates to:
+  /// **'Spanish'**
+  String get cs_languageSpanish;
+
+  /// No description provided for @cs_languageEnglish.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get cs_languageEnglish;
 
   /// No description provided for @cs_theme.
   ///
@@ -119,11 +131,41 @@ abstract class AppLocalizations {
   /// **'Theme'**
   String get cs_theme;
 
+  /// No description provided for @cs_themeLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get cs_themeLight;
+
+  /// No description provided for @cs_themeDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get cs_themeDark;
+
+  /// No description provided for @cs_themeSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'System (auto)'**
+  String get cs_themeSystem;
+
   /// No description provided for @cs_notifications.
   ///
   /// In en, this message translates to:
   /// **'Notifications'**
   String get cs_notifications;
+
+  /// No description provided for @cs_events.
+  ///
+  /// In en, this message translates to:
+  /// **'Events'**
+  String get cs_events;
+
+  /// Toggle to display events on the map
+  ///
+  /// In en, this message translates to:
+  /// **'View events on the map'**
+  String get cs_eventsSubtitle;
 
   /// No description provided for @cs_savedRoutes.
   ///

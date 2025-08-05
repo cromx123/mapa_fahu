@@ -28,7 +28,7 @@ class ConfigScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 ...['es', 'en'].map((language) {
                   return ListTile(
-                    title: Text(language == 'es' ? 'Español' : 'English'),
+                    title: Text(language == 'es' ? localizations.cs_languageSpanish : localizations.cs_languageEnglish),
                     trailing: settings.locale.languageCode == language
                         ? const Icon(Icons.check, color: Colors.blue)
                         : null,
@@ -59,9 +59,9 @@ class ConfigScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 ...[
-                  {'label': 'Claro', 'mode': ThemeMode.light},
-                  {'label': 'Oscuro', 'mode': ThemeMode.dark},
-                  {'label': 'Sistema', 'mode': ThemeMode.system},
+                  {'label': localizations.cs_themeLight , 'mode': ThemeMode.light},
+                  {'label': localizations.cs_themeDark , 'mode': ThemeMode.dark},
+                  {'label': localizations.cs_themeSystem, 'mode': ThemeMode.system},
                 ].map((item) {
                   return ListTile(
                     title: Text(item['label'] as String),
@@ -91,20 +91,19 @@ class ConfigScreen extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.language, color: Theme.of(context).iconTheme.color),
             title: Text(localizations.cs_language),
-            subtitle: Text(settings.locale.languageCode == 'es' ? 'Español' : 'English'),
+            subtitle: Text(settings.locale.languageCode == 'es' ? localizations.cs_languageSpanish : localizations.cs_languageEnglish),
             onTap: _showLanguageSelection,
           ),
           
-          // Tema
           ListTile(
             leading: Icon(Icons.color_lens, color: Theme.of(context).iconTheme.color),
-            title: Text(localizations.cs_theme),
+            title: Text(localizations.cs_theme), 
             subtitle: Text(
               settings.themeMode == ThemeMode.light
-                  ? 'Claro'
-                  : settings.themeMode == ThemeMode.dark
-                      ? 'Oscuro'
-                      : 'Sistema',
+                ? localizations.cs_themeLight 
+                : settings.themeMode == ThemeMode.dark
+                    ? localizations.cs_themeDark 
+                    : localizations.cs_themeSystem, 
             ),
             onTap: _showThemeSelection,
           ),
@@ -120,6 +119,21 @@ class ConfigScreen extends StatelessWidget {
             ),
           ),
           
+          // Eventos
+          ListTile(
+            leading: Icon(Icons.event, color: Theme.of(context).iconTheme.color),
+            title: Text(localizations.cs_events),
+            subtitle: Text(
+              localizations.cs_eventsSubtitle,
+              semanticsLabel: localizations.cs_eventsSubtitle + ' toggle',
+            ),
+            trailing: Switch(
+              value: false,
+              onChanged: (value) {
+              },
+            ),
+          ),
+
           // Rutas guardadas
           ListTile(
             leading: Icon(Icons.save, color: Theme.of(context).iconTheme.color),
