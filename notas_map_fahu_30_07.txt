@@ -6,9 +6,9 @@ Añadir botón: iniciar ruta.
 
 Busqueda mejorada: Al buscar un lugar no realice la busqueda de nodos camino.
 
-Añadir carta: Eventos. // funciones ver todos los eventos a treves de una view nueva.
+Carta de Eventos: Debe mostrar un listado de eventos del mes con un botón de filtros (Día, Semana, Mes). // funciones ver todos los eventos a treves de una view nueva.
 
-Modificar opciones: Activar/Desactivar la visiualización de eventos en la U. 
+Modificar opciones: Activar/Desactivar la visiualización de eventos en la U. ( Cris: trabajando)
 	// eventos que ocurriran en esta semana. Estos apareceran como points de un 
 	   color distinto.
 
