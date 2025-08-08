@@ -33,6 +33,8 @@ class CampusMapController extends ChangeNotifier {
   String selectedPlaceType = '';
   bool isInfoCardVisible = false;
   bool isCollapse = false;
+  double currentZoom = 17.0; 
+  LatLng currentCenter = LatLng(-33.4467, -70.6821);
 
   CampusMapController() {
     loadNodes();
@@ -96,11 +98,10 @@ class CampusMapController extends ChangeNotifier {
       final resutlt = dijkstra(campusNodes, startNode.id, lugar.id);
       routePoints = resutlt.path.map((n) => n.coord).toList();
       distancia = resutlt.distance ;
-      distanciaKm = distancia / 1000; // Convertir a kilómetros
+      distanciaKm = distancia / 1000; 
       tiempoHoras = distanciaKm / velocidadPromedio;
-      tiempoMinutos = tiempoHoras * 60; // Convertir a minutos
+      tiempoMinutos = tiempoHoras * 60; 
 
-      // Si userLocationMarker existe, añade primero tu ubicación real
       if (userLocationMarker != null) {
         routePoints.insert(0, userLocationMarker!.point);
       }
@@ -167,7 +168,14 @@ class CampusMapController extends ChangeNotifier {
     }
   }
 
-  void moveToUserLocation() => _getUserLocation(moveToLocation: true);
+  void moveToUserLocation() async {
+    await _getUserLocation(moveToLocation: true);
+    if (userLocationMarker != null) {
+      currentCenter = userLocationMarker!.point;
+      notifyListeners();
+    }
+  }
+
 
   void hideInfoCard(){
     isCollapse = true;
@@ -177,11 +185,31 @@ class CampusMapController extends ChangeNotifier {
     isCollapse = false;
     notifyListeners();
   }
+
+  void zoomIn() {
+    if (currentZoom < 18) {
+      currentZoom += 1;
+      mapController.move(currentCenter, currentZoom);
+      logger.i('Zooming in to level: $currentZoom');
+      notifyListeners();
+    }
+  }
+
+  void zoomOut() {
+    if (currentZoom > 2) {
+      currentZoom -= 1;
+      mapController.move(currentCenter, currentZoom);
+      logger.i('Zooming out to level: $currentZoom');
+      notifyListeners();
+    }
+  }
+
   void mostrar_busqueda(String texto) {
     
     final lugares = campusNodes.where(
-      (n) => n.tipo.toLowerCase().contains(texto.toLowerCase())
+      (n) => (n.tipo ?? '').toLowerCase().contains(texto.toLowerCase())
     ).toList();
+
 
     markers = lugares.map((lugar) => Marker(
       point: lugar.coord,

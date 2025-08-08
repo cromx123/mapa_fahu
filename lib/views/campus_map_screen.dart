@@ -70,17 +70,17 @@ class CampusMapScreen extends StatelessWidget {
         Positioned.fill(
           child: FlutterMap(
             mapController: controller.mapController,
-           options: MapOptions(
-             initialCenter: LatLng(-33.447343, -70.684989), // Punto central del campus
-             initialZoom: 17,
-             minZoom: 15,
-             maxZoom: 22,
-            cameraConstraint: CameraConstraint.contain(
-            bounds: LatLngBounds(
-             LatLng(-33.453011, -70.688118), // esquina suroeste
-             LatLng(-33.444813, -70.679414), // esquina noreste
+            options: MapOptions(
+              initialCenter: LatLng(-33.447343, -70.684989), // Punto central del campus
+              initialZoom: 17,
+              minZoom: 15,
+              maxZoom: 22,
+              cameraConstraint: CameraConstraint.contain(
+              bounds: LatLngBounds(
+                LatLng(-33.453011, -70.688118), // esquina suroeste
+                LatLng(-33.444813, -70.679414), // esquina noreste
+                ),
               ),
-             ),
             ),
             children: [
               TileLayer(
@@ -120,6 +120,42 @@ class CampusMapScreen extends StatelessWidget {
             ],
           ),
         ),
+        if (kIsWeb)
+          Positioned(
+            bottom: isLargeScreen
+                ? 90 // ⬅ más arriba que el botón de ubicación
+                : (controller.routePoints.isNotEmpty
+                    ? (controller.isCollapse ? 160 : 220)
+                    : 90),
+            right: 20,
+            child: Column(
+              children: [
+                FloatingActionButton(
+                  heroTag: 'zoom_in',
+                  mini: true,
+                  backgroundColor: Theme.of(context).floatingActionButtonTheme.backgroundColor,
+                  onPressed: controller.zoomIn,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(100),
+                    side: BorderSide(color: Theme.of(context).primaryColor.withOpacity(0.5), width: 1),
+                  ),
+                  child: Icon(Icons.add, color: Theme.of(context).floatingActionButtonTheme.foregroundColor),
+                ),
+                const SizedBox(height: 12),
+                FloatingActionButton(
+                  heroTag: 'zoom_out',
+                  mini: true,
+                  backgroundColor: Theme.of(context).floatingActionButtonTheme.backgroundColor,
+                  onPressed: controller.zoomOut,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(100),
+                    side: BorderSide(color: Theme.of(context).primaryColor.withOpacity(0.5), width: 1),
+                  ),
+                  child: Icon(Icons.remove, color: Theme.of(context).floatingActionButtonTheme.foregroundColor),
+                ),
+              ],
+            ),
+          ),
         Positioned(
           bottom: isLargeScreen
           ? 20 

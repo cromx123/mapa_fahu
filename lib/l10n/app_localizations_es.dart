@@ -60,6 +60,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get cs_helpAndSupport => 'Ayuda y Soporte';
 
   @override
+  String get cs_feedback => 'Sugerencias';
+
+  @override
   String get ms_menuTitle => 'Menú';
 
   @override
@@ -109,4 +112,55 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get cms_filterOthers => 'otros...';
+
+  @override
+  String get fs_feedback => 'Feedback';
+
+  @override
+  String get fs_feedbackName => 'Nombre';
+
+  @override
+  String get fs_feedbackEmail => 'Correo electrónico';
+
+  @override
+  String get fs_feedbackMessage => 'Tu mensaje';
+
+  @override
+  String get fs_feedbackSubmit => 'Enviar feedback';
+
+  @override
+  String get fs_feedbackThankYou => '¡Gracias por tu feedback!';
+
+  @override
+  String get fs_feedbackFrequentQuestions => 'Preguntas frecuentes';
+
+  @override
+  String get fs_feedbackNameRequired => 'Por favor ingresa tu nombre';
+
+  @override
+  String get fs_feedbackEmailRequired => 'Por favor ingresa tu email';
+
+  @override
+  String get fs_feedbackEmailInvalid => 'Ingresa un email válido';
+
+  @override
+  String get fs_feedbackMessageRequired => 'Por favor escribe tu mensaje';
+
+  @override
+  String get fs_feedbackMessageTooShort => 'El mensaje es muy corto (mínimo 10 caracteres)';
+
+  @override
+  String get fs_close => 'Cerrar';
+
+  @override
+  String get fs_faqQuestion1 => '¿Cómo cambio mis unidades de medida?';
+
+  @override
+  String get fs_faqAnswer1 => 'Ve a Configuración > Unidades y selecciona tu preferencia.';
+
+  @override
+  String get fs_faqQuestion2 => '¿Dónde veo mi historial de viajes?';
+
+  @override
+  String get fs_faqAnswer2 => 'En la pestaña \'Historial\' del menú principal.';
 }
