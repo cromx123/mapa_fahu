@@ -40,10 +40,7 @@ class MicController extends ChangeNotifier {
           searchController.text = val.recognizedWords;
           notifyListeners();
 
-          if (val.finalResult) {
-            controller.buscarLugar(val.recognizedWords);
-            stopListening();
-          }
+          
         },
         listenFor: const Duration(seconds: 10),
         pauseFor: const Duration(seconds: 5),
