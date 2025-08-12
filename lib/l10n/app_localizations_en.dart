@@ -60,6 +60,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cs_helpAndSupport => 'Help & Support';
 
   @override
+  String get cs_feedback => 'Feedback';
+
+  @override
   String get ms_menuTitle => 'Menu';
 
   @override
@@ -109,4 +112,55 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cms_filterOthers => 'others...';
+
+  @override
+  String get fs_feedback => 'Feedback';
+
+  @override
+  String get fs_feedbackName => 'Name';
+
+  @override
+  String get fs_feedbackEmail => 'Email';
+
+  @override
+  String get fs_feedbackMessage => 'Your message';
+
+  @override
+  String get fs_feedbackSubmit => 'Submit feedback';
+
+  @override
+  String get fs_feedbackThankYou => 'Thank you for your feedback!';
+
+  @override
+  String get fs_feedbackFrequentQuestions => 'Frequent questions';
+
+  @override
+  String get fs_feedbackNameRequired => 'Please enter your name';
+
+  @override
+  String get fs_feedbackEmailRequired => 'Please enter your email';
+
+  @override
+  String get fs_feedbackEmailInvalid => 'Please enter a valid email';
+
+  @override
+  String get fs_feedbackMessageRequired => 'Please write your message';
+
+  @override
+  String get fs_feedbackMessageTooShort => 'Message is too short (min 10 characters)';
+
+  @override
+  String get fs_close => 'Close';
+
+  @override
+  String get fs_faqQuestion1 => 'How do I change measurement units?';
+
+  @override
+  String get fs_faqAnswer1 => 'Go to Settings > Units and select your preference.';
+
+  @override
+  String get fs_faqQuestion2 => 'Where can I see my trip history?';
+
+  @override
+  String get fs_faqAnswer2 => 'In the \'History\' tab from the main menu.';
 }

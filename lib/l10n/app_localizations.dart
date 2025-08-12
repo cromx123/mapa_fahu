@@ -197,6 +197,12 @@ abstract class AppLocalizations {
   /// **'Help & Support'**
   String get cs_helpAndSupport;
 
+  /// No description provided for @cs_feedback.
+  ///
+  /// In en, this message translates to:
+  /// **'Feedback'**
+  String get cs_feedback;
+
   /// No description provided for @ms_menuTitle.
   ///
   /// In en, this message translates to:
@@ -298,6 +304,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'others...'**
   String get cms_filterOthers;
+
+  /// No description provided for @fs_feedback.
+  ///
+  /// In en, this message translates to:
+  /// **'Feedback'**
+  String get fs_feedback;
+
+  /// No description provided for @fs_feedbackName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get fs_feedbackName;
+
+  /// No description provided for @fs_feedbackEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get fs_feedbackEmail;
+
+  /// No description provided for @fs_feedbackMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your message'**
+  String get fs_feedbackMessage;
+
+  /// No description provided for @fs_feedbackSubmit.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit feedback'**
+  String get fs_feedbackSubmit;
+
+  /// No description provided for @fs_feedbackThankYou.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you for your feedback!'**
+  String get fs_feedbackThankYou;
+
+  /// No description provided for @fs_feedbackFrequentQuestions.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequent questions'**
+  String get fs_feedbackFrequentQuestions;
+
+  /// No description provided for @fs_feedbackNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your name'**
+  String get fs_feedbackNameRequired;
+
+  /// No description provided for @fs_feedbackEmailRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email'**
+  String get fs_feedbackEmailRequired;
+
+  /// No description provided for @fs_feedbackEmailInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email'**
+  String get fs_feedbackEmailInvalid;
+
+  /// No description provided for @fs_feedbackMessageRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please write your message'**
+  String get fs_feedbackMessageRequired;
+
+  /// No description provided for @fs_feedbackMessageTooShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Message is too short (min 10 characters)'**
+  String get fs_feedbackMessageTooShort;
+
+  /// No description provided for @fs_close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get fs_close;
+
+  /// No description provided for @fs_faqQuestion1.
+  ///
+  /// In en, this message translates to:
+  /// **'How do I change measurement units?'**
+  String get fs_faqQuestion1;
+
+  /// No description provided for @fs_faqAnswer1.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to Settings > Units and select your preference.'**
+  String get fs_faqAnswer1;
+
+  /// No description provided for @fs_faqQuestion2.
+  ///
+  /// In en, this message translates to:
+  /// **'Where can I see my trip history?'**
+  String get fs_faqQuestion2;
+
+  /// No description provided for @fs_faqAnswer2.
+  ///
+  /// In en, this message translates to:
+  /// **'In the \'History\' tab from the main menu.'**
+  String get fs_faqAnswer2;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -15,7 +15,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:diacritic/diacritic.dart';
 
-const String baseUrl = "http://172.24.63.31:8000";
+const String baseUrl = "http://154.38.176.78:8000";
 
 
 class CampusMapController extends ChangeNotifier {

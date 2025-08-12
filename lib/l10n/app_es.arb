@@ -23,6 +23,7 @@
     "@cs_unitsMeters": {"description": "Opción de metros"},
     "@cs_unitsMiles": {"description": "Opción de millas"},
     "cs_helpAndSupport": "Ayuda y Soporte",
+    "cs_feedback": "Sugerencias",
 
     "ms_menuTitle": "Menú",
     "ms_login": "Iniciar sesión",
@@ -42,5 +43,24 @@
     "cms_filterCasinos": "Casinos",
     "cms_filterBathrooms": "Baños",
     "cms_filterRooms": "Salas",
-    "cms_filterOthers": "otros..."
+    "cms_filterOthers": "otros...",
+
+    "fs_feedback": "Feedback",
+    "fs_feedbackName": "Nombre",
+    "fs_feedbackEmail": "Correo electrónico",
+    "fs_feedbackMessage": "Tu mensaje",
+    "fs_feedbackSubmit": "Enviar feedback",
+    "fs_feedbackThankYou": "¡Gracias por tu feedback!",
+    "fs_feedbackFrequentQuestions": "Preguntas frecuentes",
+    "fs_feedbackNameRequired": "Por favor ingresa tu nombre",
+    "fs_feedbackEmailRequired": "Por favor ingresa tu email",
+    "fs_feedbackEmailInvalid": "Ingresa un email válido",
+    "fs_feedbackMessageRequired": "Por favor escribe tu mensaje",
+    "fs_feedbackMessageTooShort": "El mensaje es muy corto (mínimo 10 caracteres)",
+    "fs_close": "Cerrar",
+    "fs_faqQuestion1": "¿Cómo cambio mis unidades de medida?",
+    "fs_faqAnswer1": "Ve a Configuración > Unidades y selecciona tu preferencia.",
+    "fs_faqQuestion2": "¿Dónde veo mi historial de viajes?",
+    "fs_faqAnswer2": "En la pestaña 'Historial' del menú principal."
+
 }

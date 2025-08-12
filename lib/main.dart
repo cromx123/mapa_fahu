@@ -16,6 +16,7 @@ import 'views/estado_sol_screen.dart';
 import '/views/foto_screen.dart';
 import 'themes/theme.dart';
 import 'animated_splash_screen.dart';
+import 'views/feedback_screen.dart';
 
 void main() {
   runApp(
@@ -73,6 +74,7 @@ class CampusMapApp extends StatelessWidget {
           );
         },
         '/estado_solicitud': (context) => const EstadosSolicitudesScreen(),
+        '/feedback_screen': (context) => const FeedbackScreen(),
         '/foto_screen'     : (context) => FotoScreen(),
       },
     );

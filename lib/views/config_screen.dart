@@ -167,6 +167,15 @@ class ConfigScreen extends StatelessWidget {
             },
           ),
           
+          // Feedback
+          ListTile(
+            leading: Icon(Icons.feedback, color: Theme.of(context).iconTheme.color),
+            title: Text(localizations.cs_feedback),
+            onTap: () {
+              Navigator.pushNamed(context, '/feedback_screen');
+            },
+          ),
+
           // Cerrar sesión
           /* Padding(
             padding: const EdgeInsets.all(16.0),
